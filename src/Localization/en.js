@@ -1,0 +1,17 @@
+export default {
+  1: 'welcome',
+  2: '"Verily in the remembrance of Allah do hearts find rest."',
+  3: `Surah Ar-Ra'd | 28`,
+  4: 'Continue',
+  5: 'Set a reminder',
+  6: 'You can change the time later in settings',
+  7: 'Settings',
+  8: 'Notification',
+  9: 'Mode',
+  10: 'Change theme',
+  11: 'Change language to arabic',
+  12: 'Share',
+  13: 'Help',
+  14: 'Rate App',
+  15: 'Favorites',
+};
