@@ -71,6 +71,7 @@ export function changeLanguage(isRTL) {
       type: CHANGE_LANGUAGE_START,
     });
     I18nManager.allowRTL(!isRTL);
+    I18nManager.forceRTL(!isRTL);
     dispatch({type: CHANGE_LANGUAGE_SUCCESS, payload: !isRTL});
     RNRestart.restart();
   };

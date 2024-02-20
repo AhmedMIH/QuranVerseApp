@@ -1,4 +1,5 @@
 const commonColor = {
+  moreLight: '#F6E5DE',
   lightPrimary: '#ffdbcd',
   primary: '#FCEAE4',
   darkPrimary: '#52443D',
@@ -7,6 +8,10 @@ const commonColor = {
   text: '#484646',
   fillProgressBar: '#8E4D2E',
   infillProgressBar: '#F1DFD8',
+  seashell: '#FFF1EC',
+  lemon: '#F5EDC0',
+  pastel: '#CFDBC6',
+  pink: '#FFDADA',
 };
 
 const light = {

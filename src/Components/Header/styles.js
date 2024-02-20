@@ -12,8 +12,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     height: responsiveHeight(54),
-    marginHorizontal: responsiveWidth(16),
-    marginVertical: responsiveHeight(16),
+    paddingHorizontal: responsiveWidth(16),
   },
   title: {
     flex: 1,

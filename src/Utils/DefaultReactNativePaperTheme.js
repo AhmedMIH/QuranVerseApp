@@ -6,6 +6,7 @@ export default theme = {
   myOwnProperty: true,
   // Specify custom property in nested object
   colors: {
+    ...DefaultTheme.colors,
     primary: getColorTheme().fillProgressBar,
     primaryContainer: '#F2E48A',
     secondaryContainer: '#FFDBCD',

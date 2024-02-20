@@ -1,44 +1,25 @@
-import {View, Text, ImageBackground, TouchableOpacity} from 'react-native';
-import React, {useRef, useState} from 'react';
+import {
+  View,
+  Text,
+  ImageBackground,
+  TouchableOpacity,
+  Animated,
+} from 'react-native';
+import React, {useRef} from 'react';
+import Spinner from 'react-native-loading-spinner-overlay';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import LottieView from 'lottie-react-native';
+import ViewShot, {captureRef} from 'react-native-view-shot';
+import {useSelector} from 'react-redux';
+import Share from 'react-native-share';
 import {getColorTheme, responsiveWidth} from '../../Utils/Helper';
 import images from '../../Images';
 import styles from './styles';
 import VerticalSpace from '../VerticalSpace';
-import {addVerseToFav, removeVerseFromFav} from '../../Redux/Actions';
-import {connect, useSelector} from 'react-redux';
-import Spinner from 'react-native-loading-spinner-overlay';
-import ViewShot, {captureRef} from 'react-native-view-shot';
-import Share from 'react-native-share';
+import FavIcon from '../FavList/FavIcon';
 
-const index = ({item, addVerseToFav, removeVerseFromFav}) => {
+const index = ({item}) => {
   const {loading} = useSelector(state => state.fav);
-  const {favs} = useSelector(state => state.fav);
   const ref = useRef();
-
-  const [play, setPlay] = useState(false);
-  const checkIfFav = () => {
-    for (let i = 0; i < favs.length; i++) {
-      if (favs[i].verse === item.verse) {
-        return true;
-      }
-    }
-    return false;
-  };
-
-  const [progress, setProgress] = useState(checkIfFav() ? 1 : 0);
-
-  const handleOnPressFav = () => {
-    setPlay(!play);
-    if (checkIfFav()) {
-      setProgress(0);
-      removeVerseFromFav(item);
-    } else {
-      setProgress(1);
-      addVerseToFav(item);
-    }
-  };
 
   const handleOnPressShare = async () => {
     try {
@@ -54,7 +35,7 @@ const index = ({item, addVerseToFav, removeVerseFromFav}) => {
   };
 
   return (
-    <>
+    <Animated.View>
       <Spinner visible={loading} />
       <ViewShot style={{flex: 1}} ref={ref}>
         <ImageBackground
@@ -75,17 +56,7 @@ const index = ({item, addVerseToFav, removeVerseFromFav}) => {
               alignItems: 'center',
               gap: responsiveWidth(16),
             }}>
-            <TouchableOpacity
-              style={{justifyContent: 'center'}}
-              onPress={() => handleOnPressFav()}>
-              <LottieView
-                source={require('../../animation/addToFav.json')}
-                style={{width: 40, height: 40, borderColor: 'black'}}
-                autoPlay={play}
-                loop={false}
-                progress={progress}
-              />
-            </TouchableOpacity>
+            <FavIcon item={item} />
             <TouchableOpacity
               onPress={() => {
                 handleOnPressShare();
@@ -100,14 +71,8 @@ const index = ({item, addVerseToFav, removeVerseFromFav}) => {
           </View>
         </ImageBackground>
       </ViewShot>
-    </>
+    </Animated.View>
   );
 };
 
-const mapStateToProps = ({}) => ({});
-const mapDispatchToProps = {
-  addVerseToFav,
-  removeVerseFromFav,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(index);
+export default index;

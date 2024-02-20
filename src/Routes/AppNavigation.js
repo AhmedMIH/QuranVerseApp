@@ -5,6 +5,7 @@ import MainTabNavigation from './MainTabNavigation';
 import {useSelector} from 'react-redux';
 import {store} from '../Redux/Store';
 import VerseScreen from '../Screens/VerseScreen';
+import VerseTypeScreen from '../Screens/VerseTypeScreen';
 
 const AppStack = createNativeStackNavigator();
 
@@ -18,6 +19,7 @@ const AppNavigation = () => {
         )}
         <AppStack.Screen name="MainTab" component={MainTabNavigation} />
         <AppStack.Screen name="Verse" component={VerseScreen} />
+        <AppStack.Screen name="VerseType" component={VerseTypeScreen} />
       </AppStack.Navigator>
     </NavigationContainer>
   );

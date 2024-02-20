@@ -29,7 +29,7 @@ function App(): React.JSX.Element {
     <PaperProvider theme={DefaultReactNativePaperTheme}>
       <Provider store={store}>
         <PersistGate
-          loading={SplashScreen.show()}
+          loading={<></>}
           onBeforeLift={onBeforeLift}
           persistor={persistor}>
           <StatusBar

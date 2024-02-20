@@ -18,13 +18,11 @@ const resources = {
   },
 };
 
-const isRTL = store.getState().app.isRTL;
 
-debugLog('isRTL', isRTL);
 i18n.use(initReactI18next).init({
   compatibilityJSON: 'v3',
   resources,
-  lng: isRTL ? 'ar' : 'en', // language to use,
+  lng: I18nManager.isRTL ? 'ar' : 'en', // language to use,
   interpolation: {
     escapeValue: false, // react already safes from xss
   },

@@ -4,6 +4,8 @@ import {useSelector} from 'react-redux';
 import {store} from '../Redux/Store';
 
 const isTesting = true;
+let prevColor = null;
+
 const responsiveWidth = width => {
   return (Dimensions.get('window').width * width) / 390;
 };
@@ -53,6 +55,22 @@ const getColorTheme = () => {
   return darkMode ? Colors.dark : Colors.light;
 };
 
+const getRandomColor = () => {
+  const colors = [
+    getColorTheme().seashell,
+    getColorTheme().pink,
+    getColorTheme().pastel,
+    getColorTheme().lemon,
+  ];
+  let randomIndex;
+  do {
+    randomIndex = Math.floor(Math.random() * colors.length);
+  } while (colors[randomIndex] === prevColor);
+  prevColor = colors[randomIndex];
+
+  return prevColor;
+};
+
 export {
   responsiveWidth,
   responsiveHeight,
@@ -60,4 +78,5 @@ export {
   getFontFamily,
   debugLog,
   getColorTheme,
+  getRandomColor,
 };

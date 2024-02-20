@@ -14,4 +14,5 @@ export default {
   13: 'Help',
   14: 'Rate App',
   15: 'Favorites',
+  16: 'Verses about...',
 };

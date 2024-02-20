@@ -1,24 +1,56 @@
-import {View, Text, StyleSheet, FlatList} from 'react-native';
+import {StyleSheet} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import Swiper from 'react-native-swiper';
 import {connect} from 'react-redux';
 import {getVerses} from '../Redux/Actions';
-import VerseComponent from '../Components/VerseComponent';
-
-const HomeScreen = ({navigation, getVerses, verses, notificationState}) => {
+import VersesList from '../Components/VersesList';
+const HomeScreen = ({navigation, getVerses}) => {
   const [prevIndex, setPrevIndex] = useState(0);
   const [page, setPage] = useState(1);
-  const ii = {
-    id: 1,
-    verse: 'Verily in the remembrance of Allah do hearts find rest.',
-    verseAr: 'أَلا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ',
-    date: 'December 4 2023',
-    surah: 'Surah Ar-R’ad | 28',
-  };
+  const verses = [
+    {
+      id: 1,
+      verse: 'Verily in the remembrance of Allah do hearts find rest.',
+      verseAr: 'أَلا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ',
+      date: 'December 4 2023',
+      surah: 'Surah Ar-R’ad | 28',
+    },
+    {
+      id: 2,
+      verse: 'Verily in the remembrance of Allah do hearts find rest.',
+      verseAr: 'أَلا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ',
+      date: 'December 4 2023',
+      surah: 'Surah Ar-R’ad | 28',
+    },
+    {
+      id: 3,
+      verse: 'Verily in the remembrance of Allah do hearts find rest.',
+      verseAr: 'أَلا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ',
+      date: 'December 4 2023',
+      surah: 'Surah Ar-R’ad | 28',
+    },
+    {
+      id: 4,
+      verse: 'Verily in the remembrance of Allah do hearts find rest.',
+      verseAr: 'أَلا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ',
+      date: 'December 4 2023',
+      surah: 'Surah Ar-R’ad | 28',
+    },
+  ];
 
-  // useEffect(() => {
-  //   getVerses(page);
-  // }, []);
+  useEffect(() => {
+    // getVerses(page);
+    navigation.getParent()?.setOptions({tabBarStyle: {display: 'none'}});
+
+    // Shows the bar when getting to another screen
+    return () =>
+      navigation.getParent()?.setOptions({
+        tabBarStyle: {
+          backgroundColor: '#6458D7',
+          borderTopEndRadius: 18,
+          borderTopLeftRadius: 18,
+        },
+      });
+  }, [navigation]);
 
   // const getNextPage = index => {
   //   if (index < verses.length - 1) {
@@ -37,27 +69,7 @@ const HomeScreen = ({navigation, getVerses, verses, notificationState}) => {
       tabBarStyle: {display: 'flex'},
     });
   };
-  return (
-    // <FlatList
-    //   onScroll={e => {
-    //   }}
-    //   data={verses}
-    //   keyExtractor={item => item.id}
-    //   horizontal
-    //   renderItem={({item}) => (
-    //     <VerseComponent
-    //       item={ii}
-    //       keyExtractor={item => item.id}
-    //       onEndReached={() => {
-    //         getVerses(page + 1);
-    //         setPage(page + 1);
-    //       }}
-    //       onEndReachedThreshold={9 * page}
-    //     />
-    //   )}
-    // />
-    <VerseComponent item={ii} key={ii.id} />
-  );
+  return <VersesList verses={verses} />;
 };
 
 const styles = StyleSheet.create({
@@ -87,10 +99,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = ({verses, app}) => {
+const mapStateToProps = ({verses}) => {
   return {
     verses: verses.verses,
-    notificationState: app.notificationState,
   };
 };
 const mapDispatchToProps = {

@@ -2,7 +2,9 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import React, {useReducer} from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-
+import {useDispatch} from 'react-redux';
+import {Menu} from 'react-native-paper';
+import {useNavigation} from '@react-navigation/native';
 import {
   getColorTheme,
   getFontSize,
@@ -10,11 +12,10 @@ import {
   responsiveWidth,
 } from '../../Utils/Helper';
 import {removeVerseFromFav} from '../../Redux/Actions';
-import {useDispatch} from 'react-redux';
-import {Menu} from 'react-native-paper';
-import {useNavigation} from '@react-navigation/native';
 
-export default function FavItem({item}) {
+import FavIcon from './FavIcon';
+
+export default function FavItem({item, type}) {
   const [visible, setVisible] = React.useState(false);
   const dispatch = useDispatch();
   const navigation = useNavigation();
@@ -60,78 +61,82 @@ export default function FavItem({item}) {
           {item.surah}
         </Text>
       </View>
-      <Menu
-        visible={visible}
-        onDismiss={closeMenu}
-        contentStyle={{
-          backgroundColor: getColorTheme().lightPrimary,
-          width: 120,
-        }}
-        anchor={
+      {type === 1 ? (
+        <Menu
+          visible={visible}
+          onDismiss={closeMenu}
+          contentStyle={{
+            backgroundColor: getColorTheme().lightPrimary,
+            width: 120,
+          }}
+          anchor={
+            <TouchableOpacity
+              style={{marginLeft: responsiveWidth(12)}}
+              onPress={() => openMenu()}>
+              <MaterialIcons
+                name="more-vert"
+                size={24}
+                color={getColorTheme().darkPrimary}
+              />
+            </TouchableOpacity>
+          }>
           <TouchableOpacity
-            style={{marginLeft: responsiveWidth(12)}}
-            onPress={() => openMenu()}>
-            <MaterialIcons
-              name="more-vert"
+            onPress={() => {
+              //delete
+              closeMenu();
+              dispatch(removeVerseFromFav(item));
+              forceUpdate();
+            }}
+            style={{
+              flexDirection: 'row',
+              paddingHorizontal: 12,
+              paddingVertical: 16,
+              justifyContent: 'space-between',
+              backgroundColor: getColorTheme().lightPrimary,
+            }}>
+            <Text
+              style={{
+                fontSize: getFontSize(16),
+                lineHeight: 24,
+                fontWeight: '400',
+                color: getColorTheme().text,
+              }}>
+              Delete
+            </Text>
+            <FontAwesome
+              name="trash-o"
               size={24}
               color={getColorTheme().darkPrimary}
             />
           </TouchableOpacity>
-        }>
-        <TouchableOpacity
-          onPress={() => {
-            //delete
-            closeMenu();
-            dispatch(removeVerseFromFav(item));
-            forceUpdate();
-          }}
-          style={{
-            flexDirection: 'row',
-            paddingHorizontal: 12,
-            paddingVertical: 16,
-            justifyContent: 'space-between',
-            backgroundColor: getColorTheme().lightPrimary,
-          }}>
-          <Text
+          <TouchableOpacity
             style={{
-              fontSize: getFontSize(16),
-              lineHeight: 24,
-              fontWeight: '400',
-              color: getColorTheme().text,
+              flex: 1,
+              flexDirection: 'row',
+              paddingHorizontal: 12,
+              paddingVertical: 16,
+              justifyContent: 'space-between',
+              backgroundColor: getColorTheme().lightPrimary,
             }}>
-            Delete
-          </Text>
-          <FontAwesome
-            name="trash-o"
-            size={24}
-            color={getColorTheme().darkPrimary}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{
-            flex: 1,
-            flexDirection: 'row',
-            paddingHorizontal: 12,
-            paddingVertical: 16,
-            justifyContent: 'space-between',
-            backgroundColor: getColorTheme().lightPrimary,
-          }}>
-          <Text
-            style={{
-              fontSize: getFontSize(16),
-              lineHeight: 24,
-              fontWeight: '400',
-              color: getColorTheme().text,
-            }}>
-            Share
-          </Text>
-          <MaterialIcons
-            name={'ios-share'}
-            color={getColorTheme().darkPrimary}
-            size={24}
-          />
-        </TouchableOpacity>
-      </Menu>
+            <Text
+              style={{
+                fontSize: getFontSize(16),
+                lineHeight: 24,
+                fontWeight: '400',
+                color: getColorTheme().text,
+              }}>
+              Share
+            </Text>
+            <MaterialIcons
+              name={'ios-share'}
+              color={getColorTheme().darkPrimary}
+              size={24}
+            />
+          </TouchableOpacity>
+        </Menu>
+      ) : (
+        <FavIcon item={item} style={{height: 32, width: 32}} />
+      )}
     </TouchableOpacity>
   );
 }

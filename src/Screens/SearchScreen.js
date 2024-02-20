@@ -1,11 +1,18 @@
-import {View, Text} from 'react-native';
-import React from 'react';
+import {SafeAreaView} from 'react-native';
+import React, {useState} from 'react';
+import SearchBar from '../Components/Search/SearchBar';
+import {responsiveWidth} from '../Utils/Helper';
+import TypesList from '../Components/Search/TypesList';
+import Container from '../Components/Container';
 
 const SearchScreen = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+
   return (
-    <View>
-      <Text>SearchScreen</Text>
-    </View>
+    <Container style={{marginHorizontal: responsiveWidth(30)}}>
+      <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <TypesList />
+    </Container>
   );
 };
 
