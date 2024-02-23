@@ -26,8 +26,8 @@ function App(): React.JSX.Element {
   });
 
   return (
-    <PaperProvider theme={DefaultReactNativePaperTheme}>
-      <Provider store={store}>
+    <Provider store={store}>
+      <PaperProvider theme={DefaultReactNativePaperTheme}>
         <PersistGate
           loading={<></>}
           onBeforeLift={onBeforeLift}
@@ -39,8 +39,8 @@ function App(): React.JSX.Element {
           />
           <AppNavigation />
         </PersistGate>
-      </Provider>
-    </PaperProvider>
+      </PaperProvider>
+    </Provider>
   );
 }
 export default App;

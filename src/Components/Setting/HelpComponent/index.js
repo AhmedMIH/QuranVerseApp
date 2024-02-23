@@ -1,7 +1,7 @@
 import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import styles from '../styles';
 import {getColorTheme} from '../../../Utils/Helper';
 
@@ -11,8 +11,8 @@ const index = () => {
     <View style={styles.innerContainer}>
       <Text style={styles.mainText}>{t('13')}</Text>
       <TouchableOpacity>
-        <MaterialIcons
-          name="expand-more"
+        <Ionicons
+          name="help-circle-outline"
           size={24}
           color={getColorTheme().darkPrimary}
         />

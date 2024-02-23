@@ -8,9 +8,11 @@ import FavoritesScreen from '../Screens/FavoritesScreen';
 import SettingScreen from '../Screens/SettingScreen';
 import SearchScreen from '../Screens/SearchScreen';
 import {getColorTheme} from '../Utils/Helper';
+import {useTranslation} from 'react-i18next';
 
 const MainTabNavigation = () => {
   const MainTab = createMaterialBottomTabNavigator();
+  const {t} = useTranslation();
 
   return (
     <MainTab.Navigator
@@ -19,7 +21,7 @@ const MainTabNavigation = () => {
       barStyle={{backgroundColor: getColorTheme().primary}}
       activeIndicatorStyle={{backgroundColor: getColorTheme().lightPrimary}}>
       <MainTab.Screen
-        name="Home"
+        name={t('17')}
         component={HomeScreen}
         options={{
           tabBarIcon: ({focused}) => (
@@ -32,7 +34,7 @@ const MainTabNavigation = () => {
         }}
       />
       <MainTab.Screen
-        name="Favorites"
+        name={t('15')}
         component={FavoritesScreen}
         options={{
           tabBarIcon: ({focused}) => (
@@ -45,7 +47,7 @@ const MainTabNavigation = () => {
         }}
       />
       <MainTab.Screen
-        name="Search"
+        name={t('20')}
         component={SearchScreen}
         options={{
           tabBarIcon: ({focused}) => (
@@ -58,7 +60,7 @@ const MainTabNavigation = () => {
         }}
       />
       <MainTab.Screen
-        name="Setting"
+        name={t('19')}
         component={SettingScreen}
         options={{
           tabBarIcon: ({focused}) => (

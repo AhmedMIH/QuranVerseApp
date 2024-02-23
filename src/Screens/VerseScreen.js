@@ -7,7 +7,7 @@ const VerseScreen = ({
     params: {item},
   },
 }) => {
-  console.log(item);
+  console.log('item', item);
   return <VerseComponent item={item} />;
 };
 

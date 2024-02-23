@@ -1,3 +1,4 @@
+import images from '../../Images';
 import {
   CHANGE_MODE_START,
   CHANGE_MODE_SUCCESS,
@@ -10,6 +11,8 @@ import {
   CHANGE_LANGUAGE_SUCCESS,
   CHANGE_LANGUAGE_FAILED,
   CHANGE_REMINDER_TIME,
+  CHANGE_BACKGROUND_START,
+  CHANGE_BACKGROUND_SUCCESS,
 } from '../Actions/Types';
 
 const INIT_STATE = {
@@ -18,6 +21,8 @@ const INIT_STATE = {
   reminderTime: {hours: 10, minutes: 0},
   darkMode: false,
   isOnBoardingShow: false,
+  backgroundType: 2,
+  backgroundImage: images.backgroundImage,
   error: null,
   loading: false,
 };
@@ -65,6 +70,19 @@ export default (state = INIT_STATE, action) => {
         ...state,
         loading: false,
         error: action.payload,
+      };
+
+    case CHANGE_BACKGROUND_START:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CHANGE_BACKGROUND_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        backgroundType: action.payload.type,
+        backgroundImage: action.payload.image,
       };
 
     default:

@@ -12,13 +12,17 @@ const commonColor = {
   lemon: '#F5EDC0',
   pastel: '#CFDBC6',
   pink: '#FFDADA',
+  lavender: '#EADDFF',
+  diamond: '#C4E1FC',
+  pinkLace: '#FED4FF',
+  lightPastel: '#D0DFCD',
 };
 
 const light = {
+  ...commonColor,
   themeColor: '#FFFFFF',
   white: '#FFFFFF',
   gray: 'gray',
-  ...commonColor,
 };
 
 const dark = {

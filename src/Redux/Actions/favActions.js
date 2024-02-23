@@ -19,7 +19,6 @@ export function addVerseToFav(verse) {
 
 export function removeVerseFromFav(verse) {
   return async dispatch => {
-    console.log('removeVerseFromFav');
     dispatch({
       type: REMOVE_VERSE_TO_FAV_START,
     });

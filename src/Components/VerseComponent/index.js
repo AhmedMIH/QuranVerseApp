@@ -5,20 +5,22 @@ import {
   TouchableOpacity,
   Animated,
 } from 'react-native';
-import React, {useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import Spinner from 'react-native-loading-spinner-overlay';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import ViewShot, {captureRef} from 'react-native-view-shot';
 import {useSelector} from 'react-redux';
 import Share from 'react-native-share';
 import {getColorTheme, responsiveWidth} from '../../Utils/Helper';
-import images from '../../Images';
 import styles from './styles';
 import VerticalSpace from '../VerticalSpace';
 import FavIcon from '../FavList/FavIcon';
+import {useFocusEffect} from '@react-navigation/native';
+import images from '../../Images';
 
 const index = ({item}) => {
   const {loading} = useSelector(state => state.fav);
+  const {backgroundType, backgroundImage} = useSelector(state => state.app);
   const ref = useRef();
 
   const handleOnPressShare = async () => {
@@ -35,12 +37,13 @@ const index = ({item}) => {
   };
 
   return (
-    <Animated.View>
+    <Animated.View style={{flex: 1}}>
       <Spinner visible={loading} />
       <ViewShot style={{flex: 1}} ref={ref}>
         <ImageBackground
+          imageStyle={{backgroundColor: backgroundImage}}
           style={styles.imageContainer}
-          source={images.backgroundImage}
+          source={backgroundType === 1 ? null : backgroundImage}
           resizeMode="cover">
           <Text style={styles.verseArText}>{item.verse}</Text>
           <VerticalSpace height={32} />

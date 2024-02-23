@@ -14,8 +14,10 @@ import {
 import {removeVerseFromFav} from '../../Redux/Actions';
 
 import FavIcon from './FavIcon';
+import {useTranslation} from 'react-i18next';
 
 export default function FavItem({item, type}) {
+  const {t} = useTranslation();
   const [visible, setVisible] = React.useState(false);
   const dispatch = useDispatch();
   const navigation = useNavigation();
@@ -82,7 +84,6 @@ export default function FavItem({item, type}) {
           }>
           <TouchableOpacity
             onPress={() => {
-              //delete
               closeMenu();
               dispatch(removeVerseFromFav(item));
               forceUpdate();
@@ -101,7 +102,7 @@ export default function FavItem({item, type}) {
                 fontWeight: '400',
                 color: getColorTheme().text,
               }}>
-              Delete
+              {t('25')}
             </Text>
             <FontAwesome
               name="trash-o"
@@ -125,7 +126,7 @@ export default function FavItem({item, type}) {
                 fontWeight: '400',
                 color: getColorTheme().text,
               }}>
-              Share
+              {t('12')}
             </Text>
             <MaterialIcons
               name={'ios-share'}

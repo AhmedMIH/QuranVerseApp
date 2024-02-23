@@ -22,7 +22,7 @@ const index = () => {
         />
       </TouchableOpacity>
       <BottomSheet isVisible={modalVisible} onToggle={setModalVisible}>
-        <SelectThemeContainer />
+        <SelectThemeContainer onToggle={() => setModalVisible(false)} />
       </BottomSheet>
     </View>
   );

@@ -1,6 +1,5 @@
-import {StyleSheet} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import {connect} from 'react-redux';
+import {connect, useSelector} from 'react-redux';
 import {getVerses} from '../Redux/Actions';
 import VersesList from '../Components/VersesList';
 const HomeScreen = ({navigation, getVerses}) => {
@@ -69,39 +68,14 @@ const HomeScreen = ({navigation, getVerses}) => {
       tabBarStyle: {display: 'flex'},
     });
   };
+
   return <VersesList verses={verses} />;
 };
 
-const styles = StyleSheet.create({
-  wrapper: {},
-  slide1: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#9DD6EB',
-  },
-  slide2: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#97CAE5',
-  },
-  slide3: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#92BBD9',
-  },
-  text: {
-    color: '#fff',
-    fontSize: 30,
-    fontWeight: 'bold',
-  },
-});
-
-const mapStateToProps = ({verses}) => {
+const mapStateToProps = ({verses, app}) => {
   return {
     verses: verses.verses,
+    backgroundImage: app.backgroundImage,
   };
 };
 const mapDispatchToProps = {

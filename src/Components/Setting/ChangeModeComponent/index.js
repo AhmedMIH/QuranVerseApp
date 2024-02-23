@@ -16,6 +16,7 @@ const index = ({changeMode, darkMode}) => {
     <View style={styles.innerContainer}>
       <Text style={styles.mainText}>{t('9')}</Text>
       <Switch
+        style={{marginRight: -6}}
         value={darkMode}
         onValueChange={onToggleSwitch}
         color={getColorTheme().fillProgressBar}

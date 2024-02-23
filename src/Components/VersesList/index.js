@@ -14,15 +14,7 @@ const index = ({verses}) => {
       data={verses}
       keyExtractor={item => item.id}
       horizontal
-      renderItem={({item, index}) => (
-        <VerseComponent
-          item={item}
-          pan={pan}
-          halfBoxDistance={halfBoxDistance}
-          boxWidth={boxWidth}
-          index={index}
-        />
-      )}
+      renderItem={({item, index}) => <VerseComponent item={item} />}
       onEndReached={() => {
         // getVerses(page + 1);
         // setPage(page + 1);

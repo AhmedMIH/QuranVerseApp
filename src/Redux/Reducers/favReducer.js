@@ -33,11 +33,6 @@ export default (state = INIT_STATE, action) => {
     case REMOVE_VERSE_TO_FAV_START:
       return {...state, loading: true, error: null};
     case REMOVE_VERSE_TO_FAV_SUCCESS:
-      console.log(state.favs);
-      console.log(
-        'handleRemoveVerse',
-        handleRemoveVerse(action.payload, state.favs),
-      );
       return {
         loading: false,
         error: null,
