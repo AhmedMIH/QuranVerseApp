@@ -2,8 +2,9 @@ import {TouchableOpacity} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {connect, useSelector} from 'react-redux';
 import LottieView from 'lottie-react-native';
-import {addVerseToFav, removeVerseFromFav} from '../../Redux/Actions';
 import Spinner from 'react-native-loading-spinner-overlay';
+import {addVerseToFav, removeVerseFromFav} from '../../Redux/Actions';
+import styles from './styles';
 
 function FavIcon({item, addVerseToFav, removeVerseFromFav, style}) {
   const {favs, loading} = useSelector(state => state.fav);
@@ -36,24 +37,11 @@ function FavIcon({item, addVerseToFav, removeVerseFromFav, style}) {
     }
   };
   return (
-    <TouchableOpacity
-      style={{
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        alignSelf: 'flex-start',
-        width: 47,
-      }}
-      onPress={handleOnPressFav}>
+    <TouchableOpacity style={styles.icon} onPress={handleOnPressFav}>
       <Spinner visible={loading} />
       <LottieView
         source={require('../../animation/addToFav.json')}
-        style={[
-          {
-            width: 40,
-            height: 40,
-          },
-          style,
-        ]}
+        style={[styles.animation, style]}
         autoPlay={play}
         loop={false}
         progress={progress}

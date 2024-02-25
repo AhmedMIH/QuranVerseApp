@@ -7,7 +7,7 @@ const textStyle = {
   color: getColorTheme().text,
 };
 
-const {width, height} = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 
 export default StyleSheet.create({
   imageContainer: {

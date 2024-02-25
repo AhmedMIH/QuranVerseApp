@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   Animated,
 } from 'react-native';
-import React, {useEffect, useRef} from 'react';
+import React, {useRef} from 'react';
 import Spinner from 'react-native-loading-spinner-overlay';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import ViewShot, {captureRef} from 'react-native-view-shot';
@@ -15,8 +15,6 @@ import {getColorTheme, responsiveWidth} from '../../Utils/Helper';
 import styles from './styles';
 import VerticalSpace from '../VerticalSpace';
 import FavIcon from '../FavList/FavIcon';
-import {useFocusEffect} from '@react-navigation/native';
-import images from '../../Images';
 
 const index = ({item}) => {
   const {loading} = useSelector(state => state.fav);
@@ -29,7 +27,6 @@ const index = ({item}) => {
         format: 'png',
         quality: 0.7,
       });
-      console.log('uri', uri);
       await Share.open({url: uri});
     } catch (e) {
       console.log(e);

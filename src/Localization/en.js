@@ -29,4 +29,6 @@ export default {
   29: 'Color',
   30: 'Background',
   31: 'By',
+  32: 'Cancel',
+  33: 'OK',
 };

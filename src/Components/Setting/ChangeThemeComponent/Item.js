@@ -1,8 +1,8 @@
-import {View, Text, TouchableOpacity, Image} from 'react-native';
+import {TouchableOpacity, Image} from 'react-native';
 import React from 'react';
-import {responsiveHeight, responsiveWidth} from '../../../Utils/Helper';
 import {useDispatch} from 'react-redux';
 import {changeBackground} from '../../../Redux/Actions';
+import styles from './styles';
 
 const Item = ({item, type, onToggle, style}) => {
   const dispatch = useDispatch();
@@ -14,25 +14,11 @@ const Item = ({item, type, onToggle, style}) => {
     <TouchableOpacity
       onPress={onPressItem}
       style={[
-        {
-          height: responsiveHeight(150),
-          width: responsiveWidth(95),
-          backgroundColor: type === 1 ? item : 'black',
-          marginRight: 12,
-          borderRadius: 8,
-        },
+        styles.item,
         style,
+        {backgroundColor: type === 1 ? item : 'black'},
       ]}>
-      {type === 2 && (
-        <Image
-          source={item}
-          style={{
-            height: responsiveHeight(150),
-            width: responsiveWidth(95),
-            borderRadius: 8,
-          }}
-        />
-      )}
+      {type === 2 && <Image source={item} style={styles.image} />}
     </TouchableOpacity>
   );
 };

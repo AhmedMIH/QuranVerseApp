@@ -2,6 +2,7 @@ import {View} from 'react-native';
 import React, {useCallback, useState} from 'react';
 import {TimePicker} from 'react-native-paper-dates';
 import {getColorTheme, getFontSize, responsiveHeight} from '../../Utils/Helper';
+import styles from './styles';
 
 export default function index({clock, setClock, marginVertical = 48}) {
   const [clockType, setClockType] = useState('hours');
@@ -12,13 +13,10 @@ export default function index({clock, setClock, marginVertical = 48}) {
 
   return (
     <View
-      style={{
-        paddingHorizontal: 16,
-        paddingVertical: 16,
-        backgroundColor: getColorTheme().moreLight,
-        borderRadius: 16,
-        marginVertical: responsiveHeight(marginVertical),
-      }}>
+      style={[
+        styles.container,
+        {marginVertical: responsiveHeight(marginVertical)},
+      ]}>
       <TimePicker
         inputType={'picker'}
         inputFontSize={getFontSize('16')}

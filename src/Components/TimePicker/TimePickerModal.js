@@ -5,48 +5,28 @@ import TimePicker from './index';
 import {getColorTheme, getFontSize, responsiveWidth} from '../../Utils/Helper';
 import {useDispatch, useSelector} from 'react-redux';
 import {changeReminderTime} from '../../Redux/Actions';
+import styles from './styles';
+import {useTranslation} from 'react-i18next';
 
 const TimePickerModal = ({visible, onToggle}) => {
   const dispatch = useDispatch();
+  const {t} = useTranslation();
   const {reminderTime} = useSelector(state => state.app);
   const [clock, setClock] = useState(reminderTime);
 
   return (
     <Modal isVisible={visible} onToggle={onToggle}>
       <TimePicker marginVertical={16} clock={clock} setClock={setClock} />
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'flex-end',
-          gap: 16,
-          marginHorizontal: responsiveWidth(16),
-        }}>
+      <View style={styles.modalContainer}>
         <TouchableOpacity onPress={() => onToggle(false)}>
-          <Text
-            style={{
-              fontWeight: '500',
-              fontSize: getFontSize(14),
-              color: getColorTheme().fillProgressBar,
-            }}>
-            Cancel
-          </Text>
+          <Text style={styles.optionText}>{t(32)}</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() =>
-            //toggle and update time
-            {
-              dispatch(changeReminderTime(clock));
-              onToggle(false);
-            }
-          }>
-          <Text
-            style={{
-              fontWeight: '500',
-              fontSize: getFontSize(14),
-              color: getColorTheme().fillProgressBar,
-            }}>
-            Ok
-          </Text>
+          onPress={() => {
+            dispatch(changeReminderTime(clock));
+            onToggle(false);
+          }}>
+          <Text style={styles.optionText}>{t(33)}</Text>
         </TouchableOpacity>
       </View>
     </Modal>

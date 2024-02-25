@@ -1,20 +1,10 @@
-import {View, Text, SafeAreaView, StatusBar} from 'react-native';
+import {SafeAreaView} from 'react-native';
 import React from 'react';
-import {getColorTheme} from '../../Utils/Helper';
+import styles from './styles';
 
 const index = ({children, style}) => {
   return (
-    <SafeAreaView
-      style={[
-        style,
-        {
-          marginTop: StatusBar.currentHeight,
-          flex: 1,
-          backgroundColor: getColorTheme().white,
-        },
-      ]}>
-      {children}
-    </SafeAreaView>
+    <SafeAreaView style={[style, styles.container]}>{children}</SafeAreaView>
   );
 };
 
