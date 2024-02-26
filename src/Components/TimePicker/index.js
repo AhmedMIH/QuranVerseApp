@@ -18,11 +18,12 @@ export default function index({clock, setClock, marginVertical = 48}) {
         {marginVertical: responsiveHeight(marginVertical)},
       ]}>
       <TimePicker
+
         inputType={'picker'}
         inputFontSize={getFontSize('16')}
         focused={clockType}
         onFocusInput={type => {
-          setClockType(type);
+          // setClockType(type);
         }}
         onChange={onConfirm}
         hours={clock.hours}
