@@ -3,7 +3,7 @@ import {trim, isString} from 'lodash';
 
 const apiClient = apisauce.create({
   // base URL is read from the "constructor"
-  baseURL: 'https://api.punkapi.com/v2/',
+  baseURL: 'http://127.0.0.1:3000/',
   // here are some default headers
   headers: {
     'Content-Type': 'application/json',

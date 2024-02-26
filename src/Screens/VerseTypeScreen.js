@@ -1,54 +1,42 @@
-import {View, Text} from 'react-native';
-import React, {useState} from 'react';
+import Spinner from 'react-native-loading-spinner-overlay';
+import React, { useEffect, useState } from 'react';
+import VersesAboutListPresentational from '../Components/VersesAboutListPresentational';
 import Container from '../Components/Container';
 import SearchBar from '../Components/Search/SearchBar';
 import Header from '../Components/Header';
-import VersesAboutListPresentational from '../Components/VersesAboutListPresentational';
+import { getTagVerses } from '../Redux/Actions';
+import { connect } from 'react-redux';
+const VerseTypeScreen = ( { route, loading, getTagVerses, verses } ) => {
+  const [ searchQuery, setSearchQuery ] = useState( '' );
+  const item = route.params.type;
+  console.log( 'item', item )
 
-const VerseTypeScreen = ({navigation, route}) => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const verses = [
-    {
-      id: 1,
-      verse: 'Verily in the remembrance of Allah do hearts find rest.',
-      verseAr: 'أَلا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ',
-      date: 'December 4 2023',
-      surah: 'Surah Ar-R’ad | 28',
-    },
-    {
-      id: 2,
-      verse: 'Verily in the remembrance of Allah do hearts find rest.',
-      verseAr: 'أَلا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ',
-      date: 'December 4 2023',
-      surah: 'Surah Ar-R’ad | 28',
-    },
-    {
-      id: 3,
-      verse: 'Verily in the remembrance of Allah do hearts find rest.',
-      verseAr: 'أَلا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ',
-      date: 'December 4 2023',
-      surah: 'Surah Ar-R’ad | 28',
-    },
-    {
-      id: 4,
-      verse: 'Verily in the remembrance of Allah do hearts find rest.',
-      verseAr: 'أَلا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ',
-      date: 'December 4 2023',
-      surah: 'Surah Ar-R’ad | 28',
-    },
-  ];
+  useEffect( () => {
+    getTagVerses( item.id )
+  }, [] )
 
   return (
     <Container>
+      <Spinner visible={loading} />
       <SearchBar
-        style={{marginHorizontal: 30}}
+        style={{ marginHorizontal: 30 }}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
       />
-      <Header title={route.params.type} haveBack={true} />
+      <Header title={item.name} haveBack={true} />
       <VersesAboutListPresentational verses={verses} type={2} />
     </Container>
   );
 };
+const mapStateToProps = ( { tags } ) => {
+  return {
+    verses: tags.verses,
+    loading: tags.loading,
+  };
+};
+const mapDispatchToProps = {
+  getTagVerses,
+};
 
-export default VerseTypeScreen;
+
+export default connect( mapStateToProps, mapDispatchToProps )( VerseTypeScreen )

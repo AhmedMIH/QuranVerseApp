@@ -8,20 +8,24 @@ const INIT_STATE = {
   verses: [],
   error: null,
   loading: false,
+  next: null,
+  page: 1,
 };
 
-export default (state = INIT_STATE, action) => {
-  switch (action.type) {
+export default ( state = INIT_STATE, action ) => {
+  switch ( action.type ) {
     case GET_VERSES_START:
-      return {...state, loading: true, error: null};
+      return { ...state, loading: true, error: null };
     case GET_VERSES_SUCCESS:
       return {
         loading: false,
         error: null,
-        verses: [...state.verses, ...action.payload],
+        verses: [ ...state.verses, ...action.payload.verses ],
+        next: action.payload.next,
+        page: state.page + 1,
       };
     case GET_VERSES_FAILED:
-      return {...state, loading: false, error: action.payload};
+      return { ...state, loading: false, error: action.payload };
     default:
       return state;
   }

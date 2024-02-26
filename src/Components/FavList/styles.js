@@ -21,7 +21,7 @@ export default StyleSheet.create({
     marginHorizontal: responsiveWidth(16),
     flexDirection: 'row',
     alignItems: 'flex-start',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     paddingHorizontal: responsiveWidth(24),
     paddingVertical: responsiveHeight(16),
     borderBottomWidth: 0.75,

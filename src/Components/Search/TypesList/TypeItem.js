@@ -14,7 +14,7 @@ const TypeItem = ({item, index}) => {
       onPress={() => {
         navigation.navigate('VerseType', {type: item});
       }}>
-      <Text style={styles().title}>{item}</Text>
+      <Text style={styles().title}>{item.name}</Text>
     </TouchableOpacity>
   );
 };

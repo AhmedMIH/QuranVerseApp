@@ -27,7 +27,7 @@ export default function FavItem({item, type}) {
     <TouchableOpacity
       onPress={() => navigation.navigate('Verse', {item: item})}
       style={styles.container}>
-      <View>
+      <View >
         <Text numberOfLines={1} style={styles.verseText}>
           {item.verse}
         </Text>
