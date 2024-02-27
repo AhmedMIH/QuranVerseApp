@@ -6,15 +6,19 @@
  */
 
 import React, {useEffect} from 'react';
+import DefaultReactNativePaperTheme from './src/Utils/DefaultReactNativePaperTheme';
 import {StatusBar} from 'react-native';
 import {PersistGate} from 'redux-persist/integration/react';
 import SplashScreen from 'react-native-splash-screen';
 import {PaperProvider} from 'react-native-paper';
 import {Provider} from 'react-redux';
+import Toast from 'react-native-toast-message';
+
 import AppNavigation from './src/Routes/AppNavigation';
 import {store, persistor} from './src/Redux/Store';
 import './src/Localization/i18n';
-import DefaultReactNativePaperTheme from './src/Utils/DefaultReactNativePaperTheme';
+import toastConfig from './src/Utils/toastConfig';
+
 
 function App(): React.JSX.Element {
   const onBeforeLift = () => {
@@ -39,6 +43,7 @@ function App(): React.JSX.Element {
           />
           <AppNavigation />
         </PersistGate>
+          <Toast config={toastConfig}/>
       </PaperProvider>
     </Provider>
   );

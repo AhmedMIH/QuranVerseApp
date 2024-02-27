@@ -5,6 +5,7 @@ import MainTabNavigation from './MainTabNavigation';
 import {useSelector} from 'react-redux';
 import VerseScreen from '../Screens/VerseScreen';
 import VerseTypeScreen from '../Screens/VerseTypeScreen';
+import MyToast from '../Components/Toast';
 
 const AppStack = createNativeStackNavigator();
 
@@ -12,6 +13,7 @@ const AppNavigation = () => {
   const {isOnBoardingShow} = useSelector(state => state.app);
   return (
     <NavigationContainer>
+      <MyToast />
       <AppStack.Navigator screenOptions={{headerShown: false}}>
         {!isOnBoardingShow && (
           <AppStack.Screen name="onBoarding" component={OnBoardingScreen} />

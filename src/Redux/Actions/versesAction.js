@@ -1,5 +1,6 @@
 import apiClient from '../../Api/Apiclient';
 import { GET_VERSES_START, GET_VERSES_SUCCESS, GET_VERSES_FAILED } from './Types';
+import { errorHandling } from '../Actions'
 
 export function getVerses ( page ) {
   return async dispatch => {
@@ -21,6 +22,7 @@ export function getVerses ( page ) {
             type: GET_VERSES_FAILED,
             payload: response.data,
           } );
+          dispatch( errorHandling( "something went wrong please try again later" ) )
         }
       } )
       .catch( err => {
