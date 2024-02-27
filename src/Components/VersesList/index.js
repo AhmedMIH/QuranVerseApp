@@ -3,8 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import VerseComponent from '../VerseComponent';
 import { getVerses } from '../../Redux/Actions';
 import { connect } from 'react-redux';
-import { ActivityIndicator } from 'react-native-paper';
-import Spinner from 'react-native-loading-spinner-overlay';
+import EmptyComponent from '../EmptyComponent';
 
 const index = ( { verses, getVerses, next, page, loading } ) => {
   const [ scrollViewWidth, setScrollViewWidth ] = useState( 0 );
@@ -27,6 +26,7 @@ const index = ( { verses, getVerses, next, page, loading } ) => {
   return (
     <>
       <FlatList
+        contentContainerStyle={{ flexGrow: 1 }}
         data={verses}
         keyExtractor={item => item.id}
         horizontal
@@ -49,6 +49,8 @@ const index = ( { verses, getVerses, next, page, loading } ) => {
         onScroll={Animated.event( [ { nativeEvent: { contentOffset: { x: pan.x } } } ], {
           useNativeDriver: false,
         } )}
+        ListEmptyComponent={<EmptyComponent text={'No Verses Available'} />}
+
       />
     </>
   );

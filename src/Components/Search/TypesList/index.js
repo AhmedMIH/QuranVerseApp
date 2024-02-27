@@ -1,6 +1,7 @@
 import { FlatList, StyleSheet } from 'react-native';
 import React from 'react';
 import TypeItem from './TypeItem';
+import EmptyComponent from '../../EmptyComponent';
 
 const index = ( { tags } ) => {
   return (
@@ -12,6 +13,8 @@ const index = ( { tags } ) => {
       data={tags}
       keyExtractor={( item, index ) => item.id}
       renderItem={( { item, index } ) => <TypeItem index={index} item={item} />}
+      ListEmptyComponent={<EmptyComponent text={'No Types'} />}
+
     />
   );
 };
