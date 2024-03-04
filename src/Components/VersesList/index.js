@@ -5,7 +5,7 @@ import { getVerses } from '../../Redux/Actions';
 import { connect } from 'react-redux';
 import EmptyComponent from '../EmptyComponent';
 
-const index = ( { verses, getVerses, next, page, loading } ) => {
+const index = ( { verses, getVerses, next, page, loading, refresh } ) => {
   const [ scrollViewWidth, setScrollViewWidth ] = useState( 0 );
 
   const boxWidth = scrollViewWidth * 1;
@@ -22,7 +22,6 @@ const index = ( { verses, getVerses, next, page, loading } ) => {
     }
   }
 
-
   return (
     <>
       <FlatList
@@ -30,7 +29,7 @@ const index = ( { verses, getVerses, next, page, loading } ) => {
         data={verses}
         keyExtractor={item => item.id}
         horizontal
-        renderItem={( { item, index } ) => <VerseComponent item={item} />}
+        renderItem={( { item, index } ) => <VerseComponent refresh={refresh} item={item} />}
         onEndReached={() => {
           getNextPage()
         }}

@@ -13,44 +13,43 @@ const INIT_STATE = {
   loading: false,
 };
 
-export default (state = INIT_STATE, action) => {
-  switch (action.type) {
+export default ( state = INIT_STATE, action ) => {
+  switch ( action.type ) {
     case ADD_VERSE_TO_FAV_START:
-      return {...state, loading: true, error: null};
+      return { ...state, loading: true, error: null };
     case ADD_VERSE_TO_FAV_SUCCESS:
-      if (isExist(action.payload, state.favs)) {
-        return state;
-      } else {
-        return {
-          loading: false,
-          error: null,
-          favs: [...state.favs, action.payload],
-        };
-      }
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        favs: isExist( action.payload, state.favs )
+          ? state.favs
+          : [ ...state.favs, action.payload ]
+      };
     case ADD_VERSE_TO_FAV_FAILED:
-      return {...state, loading: false, error: action.payload};
+      return { ...state, loading: false, error: action.payload };
 
     case REMOVE_VERSE_TO_FAV_START:
-      return {...state, loading: true, error: null};
+      return { ...state, loading: true, error: null };
     case REMOVE_VERSE_TO_FAV_SUCCESS:
       return {
         loading: false,
         error: null,
-        favs: handleRemoveVerse(action.payload, state.favs),
+        favs: handleRemoveVerse( action.payload, state.favs ),
       };
     case REMOVE_VERSE_TO_FAV_FAILED:
-      return {...state, loading: false, error: action.payload};
+      return { ...state, loading: false, error: action.payload };
     default:
       return state;
   }
 };
 
-const handleRemoveVerse = (itemToRemove, verses) =>
-  verses.filter(item => item.id !== itemToRemove.id);
+const handleRemoveVerse = ( itemToRemove, verses ) =>
+  verses.filter( item => item.id !== itemToRemove.id );
 
-const isExist = (item, verses) => {
-  for (let i = 0; i < verses.length; i++) {
-    if (verses[i].id === item.id) {
+const isExist = ( item, verses ) => {
+  for ( let i = 0;i < verses.length;i++ ) {
+    if ( verses[ i ].id === item.id ) {
       return true;
     }
   }

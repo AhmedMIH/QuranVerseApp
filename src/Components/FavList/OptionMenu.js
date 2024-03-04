@@ -12,8 +12,7 @@ const OptionMenu = ({
   openMenu,
   onPressFav,
   onPressShare,
-}) => {
-  console.log(visible);
+} ) => {
   const {t} = useTranslation();
 
   const [, forceUpdate] = useReducer(x => x + 1, 0);
