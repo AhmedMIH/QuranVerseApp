@@ -10,6 +10,9 @@ import { getTags } from '../Redux/Actions';
 
 const SearchScreen = ( { loading, tags, getTags } ) => {
   const [ searchQuery, setSearchQuery ] = useState( '' );
+  const filteredTags = tags.filter( tag =>
+    tag.name.toLowerCase().includes( searchQuery.toLowerCase() )
+  );
 
   useEffect( () => {
     getTags( 1 )
@@ -19,7 +22,7 @@ const SearchScreen = ( { loading, tags, getTags } ) => {
     <Container style={{ paddingHorizontal: responsiveWidth( 30 ) }}>
       <Spinner visible={loading} />
       <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      <TypesList tags={tags} />
+      <TypesList tags={filteredTags} />
     </Container>
   );
 };
