@@ -2,12 +2,13 @@ import { Animated, FlatList } from 'react-native';
 import React, { useEffect, useRef, useState } from 'react';
 import VerseComponent from '../VerseComponent';
 import { getVerses } from '../../Redux/Actions';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import EmptyComponent from '../EmptyComponent';
+import { useTranslation } from 'react-i18next';
 
 const index = ( { verses, getVerses, next, page, loading, refresh } ) => {
   const [ scrollViewWidth, setScrollViewWidth ] = useState( 0 );
-
+  const { t } = useTranslation()
   const boxWidth = scrollViewWidth * 1;
   const boxDistance = scrollViewWidth - boxWidth;
   const halfBoxDistance = boxDistance / 2;
@@ -48,7 +49,7 @@ const index = ( { verses, getVerses, next, page, loading, refresh } ) => {
         onScroll={Animated.event( [ { nativeEvent: { contentOffset: { x: pan.x } } } ], {
           useNativeDriver: false,
         } )}
-        ListEmptyComponent={<EmptyComponent text={'No Verses Available'} />}
+        ListEmptyComponent={<EmptyComponent text={t( 34 )} />}
 
       />
     </>

@@ -6,7 +6,7 @@ import {
   responsiveWidth,
 } from '../../../Utils/Helper';
 
-export default StyleSheet.create({
+export default styles = ( darkMode ) => StyleSheet.create( {
   modalContainer: {
     flex: 1,
   },
@@ -14,7 +14,7 @@ export default StyleSheet.create({
     fontSize: getFontSize(16),
     fontWeight: '500',
     lineHeight: 24,
-    color: getColorTheme().darkPrimary,
+    color: getColorTheme( darkMode ).darkPrimary,
   },
   item: {
     height: responsiveHeight(150),

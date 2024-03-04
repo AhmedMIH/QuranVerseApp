@@ -7,9 +7,12 @@ import images from '../../../Images';
 import Colors from '../../../Utils/Colors';
 import {getColorTheme} from '../../../Utils/Helper';
 import RandomizeList from './Randomize/RandomizeList';
+import { useSelector } from 'react-redux';
 
 const SelectThemeContainer = ({onToggle}) => {
   const {t} = useTranslation();
+  const { darkMode } = useSelector( ( state ) => state.app );
+
   const imageList = [
     images.backgroundImage,
     images.backgroundImage2,
@@ -33,7 +36,7 @@ const SelectThemeContainer = ({onToggle}) => {
   const randomizeList = [[...colorList], [...imageList]];
 
   return (
-    <View style={styles.modalContainer}>
+    <View style={styles( darkMode ).modalContainer}>
       <ItemList title={t('26')} data={colorList} type={1} onToggle={onToggle} />
       <ItemList title={t('27')} data={imageList} type={2} onToggle={onToggle} />
       <RandomizeList title={t('28')} data={randomizeList} onToggle={onToggle} />

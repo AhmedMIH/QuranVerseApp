@@ -1,11 +1,13 @@
 import {TouchableOpacity, Image} from 'react-native';
 import React from 'react';
-import {useDispatch} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {changeBackground} from '../../../Redux/Actions';
 import styles from './styles';
 
 const Item = ({item, type, onToggle, style}) => {
   const dispatch = useDispatch();
+  const { darkMode } = useSelector( ( state ) => state.app );
+
   const onPressItem = () => {
     dispatch(changeBackground(type, item));
     onToggle();
@@ -14,11 +16,11 @@ const Item = ({item, type, onToggle, style}) => {
     <TouchableOpacity
       onPress={onPressItem}
       style={[
-        styles.item,
+        styles( darkMode ).item,
         style,
         {backgroundColor: type === 1 ? item : 'black'},
       ]}>
-      {type === 2 && <Image source={item} style={styles.image} />}
+      {type === 2 && <Image source={item} style={styles( darkMode ).image} />}
     </TouchableOpacity>
   );
 };

@@ -8,6 +8,8 @@ import styles from './styles';
 
 function FavIcon({item, addVerseToFav, removeVerseFromFav, style}) {
   const {favs, loading} = useSelector(state => state.fav);
+  const { darkMode } = useSelector( state => state.app )
+
 
   const [play, setPlay] = useState(false);
   const checkIfFav = () => {
@@ -37,11 +39,11 @@ function FavIcon({item, addVerseToFav, removeVerseFromFav, style}) {
     }
   };
   return (
-    <TouchableOpacity style={styles.icon} onPress={handleOnPressFav}>
+    <TouchableOpacity style={styles( darkMode ).icon} onPress={handleOnPressFav}>
       <Spinner visible={loading} />
       <LottieView
         source={require('../../animation/addToFav.json')}
-        style={[styles.animation, style]}
+        style={[ styles( darkMode ).animation, style ]}
         autoPlay={play}
         loop={false}
         progress={progress}

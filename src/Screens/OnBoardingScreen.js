@@ -28,6 +28,8 @@ const OnBoardingScreen = ( {
   const [ progress, setProgress ] = useState( 0.5 );
   const { t } = useTranslation();
   const [ clock, setClock ] = useState( { hours: 10, minutes: 0 } );
+  const { darkMode } = useSelector( state => state.app )
+
 
   const handleContinuePress = async () => {
     if ( progress === 0.5 ) {
@@ -51,17 +53,17 @@ const OnBoardingScreen = ( {
         paddingVertical: responsiveHeight( 44 ),
         paddingHorizontal: responsiveWidth( 25.5 ),
         alignItems: 'center',
-        backgroundColor: getColorTheme().white,
+        backgroundColor: getColorTheme( darkMode ).white,
       }}>
       <ProgressBar
         progress={progress}
         style={{
           width: responsiveWidth( 280 ),
           height: responsiveHeight( 4 ),
-          backgroundColor: getColorTheme().infillProgressBar,
+          backgroundColor: getColorTheme( darkMode ).infillProgressBar,
         }}
         fillStyle={{
-          backgroundColor: getColorTheme().fillProgressBar,
+          backgroundColor: getColorTheme( darkMode ).fillProgressBar,
         }}
       />
       {progress === 0.5 ? (
@@ -75,7 +77,7 @@ const OnBoardingScreen = ( {
             style={{
               fontWeight: '400',
               fontSize: getFontSize( 22 ),
-              color: getColorTheme().text,
+              color: getColorTheme( darkMode ).text,
               lineHeight: 28,
               textAlign: 'center',
             }}>
@@ -85,7 +87,7 @@ const OnBoardingScreen = ( {
             style={{
               fontWeight: '400',
               fontSize: getFontSize( 16 ),
-              color: getColorTheme().text,
+              color: getColorTheme( darkMode ).text,
               lineHeight: 24,
               marginVertical: responsiveHeight( 16 ),
               textAlign: 'center',
@@ -97,7 +99,7 @@ const OnBoardingScreen = ( {
             style={{
               fontWeight: '500',
               fontSize: getFontSize( 16 ),
-              color: getColorTheme().text,
+              color: getColorTheme( darkMode ).text,
               lineHeight: 24,
               textAlign: 'center',
               letterSpacing: 0.15,
@@ -125,7 +127,7 @@ const OnBoardingScreen = ( {
             style={{
               fontWeight: '400',
                 fontSize: getFontSize( 22 ),
-              color: getColorTheme().text,
+                color: getColorTheme( darkMode ).text,
               lineHeight: 28,
               textAlign: 'center',
             }}>
@@ -135,7 +137,7 @@ const OnBoardingScreen = ( {
             style={{
               fontWeight: '400',
                 fontSize: getFontSize( 16 ),
-              color: getColorTheme().text,
+                color: getColorTheme( darkMode ).text,
               lineHeight: 24,
                 marginVertical: responsiveHeight( 16 ),
               textAlign: 'center',
@@ -149,7 +151,7 @@ const OnBoardingScreen = ( {
       <Button
         onPress={async () => handleContinuePress()}
         style={{
-          backgroundColor: getColorTheme().fillProgressBar,
+          backgroundColor: getColorTheme( darkMode ).fillProgressBar,
           width: responsiveWidth( 105 ),
           height: responsiveHeight( 45 ),
         }}
@@ -160,7 +162,7 @@ const OnBoardingScreen = ( {
           textAlign: 'center',
           letterSpacing: 0.1,
         }}
-        textColor={getColorTheme().white}>
+        textColor={getColorTheme( darkMode ).white}>
         {t( '4' )}
       </Button>
     </View>

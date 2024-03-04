@@ -18,7 +18,9 @@ import FavIcon from '../FavList/FavIcon';
 
 const index = ( { item } ) => {
   const { loading } = useSelector( state => state.fav );
+  const { darkMode } = useSelector( state => state.app )
   const { backgroundType, backgroundImage } = useSelector( state => state.app );
+
   const ref = useRef();
 
   const handleOnPressShare = async () => {
@@ -39,16 +41,16 @@ const index = ( { item } ) => {
       <ViewShot style={{ flex: 1 }} ref={ref}>
         <ImageBackground
           imageStyle={{ backgroundColor: backgroundImage }}
-          style={styles.imageContainer}
+          style={styles( darkMode ).imageContainer}
           source={backgroundType === 1 ? null : backgroundImage}
           resizeMode="cover">
-          <Text style={styles.verseArText}>{item.verse}</Text>
+          <Text style={styles( darkMode ).verseArText}>{item.verse}</Text>
           <VerticalSpace height={32} />
-          <Text style={styles.verseArText}>{item.verseAr}</Text>
+          <Text style={styles( darkMode ).verseArText}>{item.verseAr}</Text>
           <VerticalSpace height={32} />
-          <Text style={styles.surahText}>{item.surah}</Text>
+          <Text style={styles( darkMode ).surahText}>{item.surah}</Text>
           <VerticalSpace height={32} />
-          <Text style={styles.dateText}>{item.date}</Text>
+          <Text style={styles( darkMode ).dateText}>{item.date}</Text>
           <VerticalSpace height={32} />
           <View
             style={{
@@ -64,7 +66,7 @@ const index = ( { item } ) => {
               style={{ justifyContent: 'center' }}>
               <MaterialIcons
                 name={'ios-share'}
-                color={getColorTheme().darkPrimary}
+                color={getColorTheme( darkMode ).darkPrimary}
                 size={24}
               />
             </TouchableOpacity>

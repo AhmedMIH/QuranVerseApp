@@ -10,6 +10,8 @@ import {useTranslation} from 'react-i18next';
 
 const TimePickerModal = ({visible, onToggle}) => {
   const dispatch = useDispatch();
+  const { darkMode } = useSelector( state => state.app )
+
   const {t} = useTranslation();
   const {reminderTime} = useSelector(state => state.app);
   const convertTimeHour = utcToLocal( reminderTime.hours, reminderTime.minutes ).hours
@@ -20,16 +22,16 @@ const TimePickerModal = ({visible, onToggle}) => {
   return (
     <Modal isVisible={visible} onToggle={onToggle}>
       <TimePicker marginVertical={16} clock={clock} setClock={setClock} />
-      <View style={styles.modalContainer}>
+      <View style={styles( darkMode ).modalContainer}>
         <TouchableOpacity onPress={() => onToggle(false)}>
-          <Text style={styles.optionText}>{t(32)}</Text>
+          <Text style={styles( darkMode ).optionText}>{t( 32 )}</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
             dispatch(changeReminderTime(clock));
             onToggle(false);
           }}>
-          <Text style={styles.optionText}>{t(33)}</Text>
+          <Text style={styles( darkMode ).optionText}>{t( 33 )}</Text>
         </TouchableOpacity>
       </View>
     </Modal>

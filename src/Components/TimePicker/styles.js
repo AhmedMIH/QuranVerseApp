@@ -6,11 +6,11 @@ import {
   responsiveWidth,
 } from '../../Utils/Helper';
 
-export default StyleSheet.create({
+export default styles = ( darkMode ) => StyleSheet.create( {
   container: {
     paddingHorizontal: responsiveWidth(16),
     paddingVertical: responsiveHeight(16),
-    backgroundColor: getColorTheme().moreLight,
+    backgroundColor: getColorTheme( darkMode ).moreLight,
     borderRadius: 16,
   },
   modalContainer: {
@@ -22,6 +22,6 @@ export default StyleSheet.create({
   optionText: {
     fontWeight: '500',
     fontSize: getFontSize(14),
-    color: getColorTheme().fillProgressBar,
+    color: getColorTheme( darkMode ).fillProgressBar,
   },
 });

@@ -1,15 +1,15 @@
 import {Dimensions, StyleSheet} from 'react-native';
 import {getColorTheme, getFontSize, responsiveWidth} from '../../Utils/Helper';
 
-const textStyle = {
+const textStyle = darkMode => ( {
   textAlign: 'center',
   textAlignVertical: 'center',
-  color: getColorTheme().text,
-};
+  color: getColorTheme( darkMode ).text,
+} )
 
 const {width} = Dimensions.get('window');
 
-export default StyleSheet.create({
+export default styles = ( darkMode ) => StyleSheet.create( {
   imageContainer: {
     width: width,
     flex: 1,
@@ -18,7 +18,7 @@ export default StyleSheet.create({
     paddingHorizontal: responsiveWidth(75),
   },
   verseText: {
-    ...textStyle,
+    ...textStyle( darkMode ),
     fontWeight: '400',
     fontSize: getFontSize(22),
     lineHeight: 28,
@@ -28,20 +28,20 @@ export default StyleSheet.create({
     fontSize: getFontSize(16),
     lineHeight: 24,
     letterSpacing: 0.15,
-    ...textStyle,
+    ...textStyle( darkMode ),
   },
   surahText: {
     fontWeight: '500',
     fontSize: getFontSize(14),
     lineHeight: 20,
     letterSpacing: 0.1,
-    ...textStyle,
+    ...textStyle( darkMode ),
   },
   dateText: {
     fontWeight: '400',
     fontSize: getFontSize(14),
     lineHeight: 20,
     letterSpacing: 0.25,
-    ...textStyle,
+    ...textStyle( darkMode ),
   },
 });

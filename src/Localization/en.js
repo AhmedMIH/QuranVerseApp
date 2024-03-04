@@ -31,4 +31,5 @@ export default {
   31: 'By',
   32: 'Cancel',
   33: 'OK',
+  34: 'No Verses Available'
 };

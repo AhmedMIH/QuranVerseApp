@@ -6,7 +6,7 @@ import {
   responsiveWidth,
 } from '../../../Utils/Helper';
 
-export default style = bg =>
+export default style = ( bg, darkMode ) =>
   StyleSheet.create({
     container: {
       justifyContent: 'center',
@@ -22,6 +22,6 @@ export default style = bg =>
       fontSize: getFontSize(14),
       lineHeight: 20,
       letterSpacing: 0.1,
-      color: getColorTheme().darkPrimary,
+      color: getColorTheme( darkMode ).darkPrimary,
     },
   });

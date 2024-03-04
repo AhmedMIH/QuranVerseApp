@@ -4,6 +4,7 @@ import TypeItem from './TypeItem';
 import EmptyComponent from '../../EmptyComponent';
 
 const index = ( { tags } ) => {
+
   return (
     <FlatList
       showsVerticalScrollIndicator={false}

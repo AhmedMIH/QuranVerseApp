@@ -6,7 +6,7 @@ import {
   responsiveWidth,
 } from '../../../../Utils/Helper';
 
-export default StyleSheet.create({
+export default styles = ( darkMode ) => StyleSheet.create( {
   modalContainer: {
     flex: 1,
   },
@@ -14,12 +14,12 @@ export default StyleSheet.create({
     fontSize: getFontSize(16),
     fontWeight: '500',
     lineHeight: 24,
-    color: getColorTheme().darkPrimary,
+    color: getColorTheme( darkMode ).darkPrimary,
   },
   itemContainer: {
     height: responsiveHeight(150),
     width: responsiveWidth(95),
-    backgroundColor: getColorTheme().seashell,
+    backgroundColor: getColorTheme( darkMode ).seashell,
     marginRight: 12,
     borderRadius: 8,
     paddingHorizontal: 8,
@@ -30,7 +30,7 @@ export default StyleSheet.create({
     lineHeight: 20,
     fontWeight: '400',
     letterSpacing: 0.25,
-    color: getColorTheme().darkPrimary,
+    color: getColorTheme( darkMode ).darkPrimary,
   },
   overflowContainer: {
     height: responsiveHeight(65),

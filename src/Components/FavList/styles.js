@@ -6,7 +6,7 @@ import {
   responsiveWidth,
 } from '../../Utils/Helper';
 
-export default StyleSheet.create({
+export default styles = ( darkMode ) => StyleSheet.create( {
   icon: {
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -25,20 +25,20 @@ export default StyleSheet.create({
     paddingHorizontal: responsiveWidth(24),
     paddingVertical: responsiveHeight(16),
     borderBottomWidth: 0.75,
-    borderBottomColor: getColorTheme().borderColor,
+    borderBottomColor: getColorTheme( darkMode ).borderColor,
   },
   verseText: {
     fontSize: getFontSize(14),
     lineHeight: 20,
     letterSpacing: 0.25,
-    color: getColorTheme().text,
+    color: getColorTheme( darkMode ).text,
     fontWeight: '400',
   },
   surahText: {
     fontSize: getFontSize(12),
     lineHeight: 16,
     fontWeight: '500',
-    color: getColorTheme().text,
+    color: getColorTheme( darkMode ).text,
     marginTop: responsiveHeight(8),
   },
   optionContainer: {
@@ -46,12 +46,12 @@ export default StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 16,
     justifyContent: 'space-between',
-    backgroundColor: getColorTheme().lightPrimary,
+    backgroundColor: getColorTheme( darkMode ).lightPrimary,
   },
   optionText: {
     fontSize: getFontSize(16),
     lineHeight: 24,
     fontWeight: '400',
-    color: getColorTheme().text,
+    color: getColorTheme( darkMode ).text,
   },
 });

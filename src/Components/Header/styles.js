@@ -6,7 +6,7 @@ import {
   responsiveWidth,
 } from '../../Utils/Helper';
 
-export default StyleSheet.create({
+export default styles = ( darkMode ) => StyleSheet.create( {
   container: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -21,6 +21,6 @@ export default StyleSheet.create({
     lineHeight: 22,
     textAlignVertical: 'center',
     textAlign: 'center',
-    color: getColorTheme().text,
+    color: getColorTheme( darkMode ).text,
   },
 });

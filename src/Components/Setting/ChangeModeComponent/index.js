@@ -13,8 +13,8 @@ const index = ({changeMode, darkMode}) => {
     changeMode(darkMode);
   };
   return (
-    <View style={styles.innerContainer}>
-      <Text style={[ styles.mainText, { color: getThemeColor( darkMode ).text } ]}>{t( '9' )}</Text>
+    <View style={styles( darkMode ).innerContainer}>
+      <Text style={[ styles( darkMode ).mainText, { color: getThemeColor( darkMode ).text } ]}>{t( '9' )}</Text>
       <Switch
         style={{marginRight: -6}}
         value={darkMode}

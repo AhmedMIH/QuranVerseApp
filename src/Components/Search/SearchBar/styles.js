@@ -1,9 +1,9 @@
 import {StyleSheet} from 'react-native';
 import {getColorTheme, responsiveHeight} from '../../../Utils/Helper';
 
-export default StyleSheet.create({
+export default styles = ( darkMode ) => StyleSheet.create( {
   container: {
     marginTop: responsiveHeight(16),
-    backgroundColor: getColorTheme().moreLight,
+    backgroundColor: getColorTheme( darkMode ).moreLight,
   },
 });

@@ -6,14 +6,14 @@ import {
   responsiveWidth,
 } from '../../Utils/Helper';
 
-export default StyleSheet.create({
+export default styles = ( darkMode ) => StyleSheet.create( {
   container: {
     marginHorizontal: responsiveWidth(16),
-    backgroundColor: getColorTheme().white,
+    backgroundColor: getColorTheme( darkMode ).white,
   },
   outerContainer: {
     borderBottomWidth: 0.75,
-    borderBottomColor: getColorTheme().borderColor,
+    borderBottomColor: getColorTheme( darkMode ).borderColor,
   },
   innerContainer: {
     flex: 1,
@@ -24,7 +24,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     borderBottomWidth: 0.75,
     paddingHorizontal: responsiveWidth(16),
-    borderBottomColor: getColorTheme().borderColor,
+    borderBottomColor: getColorTheme( darkMode ).borderColor,
   },
   mainText: {
     flex: 1,
@@ -33,7 +33,7 @@ export default StyleSheet.create({
     lineHeight: 24,
     textAlignVertical: 'center',
     letterSpacing: 0.5,
-    color: getColorTheme().text,
+    color: getColorTheme( darkMode ).text,
   },
   expandItem: {
     flex: 1,
@@ -49,6 +49,6 @@ export default StyleSheet.create({
     fontSize: getFontSize(16),
     lineHeight: 24,
     letterSpacing: 0.5,
-    color: getColorTheme().text,
+    color: getColorTheme( darkMode ).text,
   },
 });

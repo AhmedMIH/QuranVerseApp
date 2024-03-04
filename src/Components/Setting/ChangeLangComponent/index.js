@@ -7,11 +7,11 @@ import {changeLanguage} from '../../../Redux/Actions';
 import styles from '../styles';
 import {getColorTheme} from '../../../Utils/Helper';
 
-const index = ({changeLanguage, isRTL}) => {
+const index = ( { changeLanguage, isRTL, darkMode } ) => {
   const {t} = useTranslation();
   return (
-    <View style={styles.innerContainer}>
-      <Text style={styles.mainText}>{t('11')}</Text>
+    <View style={styles( darkMode ).innerContainer}>
+      <Text style={styles( darkMode ).mainText}>{t( '11' )}</Text>
       <TouchableOpacity onPress={() => changeLanguage(isRTL)}>
         <MaterialIcons
           name="language"
@@ -26,6 +26,8 @@ const index = ({changeLanguage, isRTL}) => {
 const mapStateToProps = ({app}) => {
   return {
     isRTL: app.isRTL,
+    darkMode: app.darkMode,
+
   };
 };
 const mapDispatchToProps = {

@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
-import {responsiveHeight, responsiveWidth} from '../../Utils/Helper';
+import { getColorTheme, responsiveHeight, responsiveWidth } from '../../Utils/Helper';
 
-export default StyleSheet.create({
+export default styles = ( darkMode ) => StyleSheet.create( {
   modal: {
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -9,7 +9,7 @@ export default StyleSheet.create({
   },
   outerContainer: {
     flex: 1,
-    backgroundColor: '#00000060',
+    backgroundColor: getColorTheme( darkMode ).modalBackground,
     justifyContent: 'center',
     alignItems: 'center',
   },

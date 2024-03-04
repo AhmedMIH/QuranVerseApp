@@ -4,11 +4,14 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import styles from './styles';
 import {getColorTheme} from '../../Utils/Helper';
 import {useNavigation} from '@react-navigation/native';
+import { useSelector } from 'react-redux';
 
 const index = ({title, haveBack}) => {
   const navigation = useNavigation();
+  const { darkMode } = useSelector( state => state.app )
+
   return (
-    <View style={styles.container}>
+    <View style={styles( darkMode ).container}>
       <TouchableOpacity
         onPress={() => {
           navigation.goBack();
@@ -18,11 +21,11 @@ const index = ({title, haveBack}) => {
           <MaterialIcons
             name="arrow-back-ios"
             size={24}
-            color={getColorTheme().darkPrimary}
+            color={getColorTheme( darkMode ).darkPrimary}
           />
         )}
       </TouchableOpacity>
-      <Text style={styles.title}>{title}</Text>
+      <Text style={styles( darkMode ).title}>{title}</Text>
       <TouchableOpacity disabled style={{flex: 1}}></TouchableOpacity>
     </View>
   );

@@ -6,6 +6,7 @@ import {Menu} from 'react-native-paper';
 import {useTranslation} from 'react-i18next';
 import {getColorTheme, responsiveWidth} from '../../Utils/Helper';
 import styles from './styles';
+import { useSelector } from 'react-redux';
 const OptionMenu = ({
   visible,
   closeMenu,
@@ -14,6 +15,7 @@ const OptionMenu = ({
   onPressShare,
 } ) => {
   const {t} = useTranslation();
+  const { darkMode } = useSelector( state => state.app )
 
   const [, forceUpdate] = useReducer(x => x + 1, 0);
   return (
@@ -21,7 +23,7 @@ const OptionMenu = ({
       visible={visible}
       onDismiss={closeMenu}
       contentStyle={{
-        backgroundColor: getColorTheme().lightPrimary,
+        backgroundColor: getColorTheme( darkMode ).lightPrimary,
         width: 120,
       }}
       anchor={
@@ -31,7 +33,7 @@ const OptionMenu = ({
           <MaterialIcons
             name="more-vert"
             size={24}
-            color={getColorTheme().darkPrimary}
+            color={getColorTheme( darkMode ).darkPrimary}
           />
         </TouchableOpacity>
       }>
@@ -41,12 +43,12 @@ const OptionMenu = ({
           onPressFav();
           forceUpdate();
         }}
-        style={styles.optionContainer}>
-        <Text style={styles.optionText}>{t('25')}</Text>
+        style={styles( darkMode ).optionContainer}>
+        <Text style={styles( darkMode ).optionText}>{t( '25' )}</Text>
         <FontAwesome
           name="trash-o"
           size={24}
-          color={getColorTheme().darkPrimary}
+          color={getColorTheme( darkMode ).darkPrimary}
         />
       </TouchableOpacity>
       <TouchableOpacity
@@ -55,11 +57,11 @@ const OptionMenu = ({
           onPressShare();
           forceUpdate();
         }}
-        style={styles.optionContainer}>
-        <Text style={styles.optionText}>{t('12')}</Text>
+        style={styles( darkMode ).optionContainer}>
+        <Text style={styles( darkMode ).optionText}>{t( '12' )}</Text>
         <MaterialIcons
           name={'ios-share'}
-          color={getColorTheme().darkPrimary}
+          color={getColorTheme( darkMode ).darkPrimary}
           size={24}
         />
       </TouchableOpacity>
