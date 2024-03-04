@@ -18,6 +18,7 @@ import AppNavigation from './src/Routes/AppNavigation';
 import {store, persistor} from './src/Redux/Store';
 import './src/Localization/i18n';
 import toastConfig from './src/Utils/toastConfig';
+import PushController from './src/Utils/PushController/PushController'
 
 
 function App(): React.JSX.Element {
@@ -32,7 +33,7 @@ function App(): React.JSX.Element {
   return (
     <Provider store={store}>
       <PaperProvider theme={DefaultReactNativePaperTheme}>
-        <PersistGate
+        <PersistGate 
           loading={<></>}
           onBeforeLift={onBeforeLift}
           persistor={persistor}>
@@ -45,6 +46,7 @@ function App(): React.JSX.Element {
         </PersistGate>
           <Toast config={toastConfig}/>
       </PaperProvider>
+      <PushController />
     </Provider>
   );
 }

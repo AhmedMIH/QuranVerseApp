@@ -1,8 +1,7 @@
 import {Dimensions, PixelRatio} from 'react-native';
 import Colors from './Colors';
-import {useSelector} from 'react-redux';
 import {store} from '../Redux/Store';
-import images from '../Images';
+import themes from './Colors';
 
 const isTesting = true;
 let prevColor = null;
@@ -56,6 +55,13 @@ const getColorTheme = () => {
   return darkMode ? Colors.dark : Colors.light;
 };
 
+
+export const getThemeColor = ( darkMode ) => {
+  const theme = darkMode ? 'dark' : 'light';
+  const themeColor = themes[ theme ];
+  const fallbackColor = themes.light;
+  return themeColor || fallbackColor;
+};
 const getRandomColor = () => {
   const colors = [
     getColorTheme().seashell,
@@ -90,6 +96,40 @@ function formatTime(hours, minutes) {
   return {time: `${formattedHours}:${formattedMinutes} `, meridiem: meridiem};
 }
 
+function localToUTC ( hours, minutes ) {
+  // Convert hours and minutes to milliseconds
+  const localTime = hours * 60 * 60 * 1000 + minutes * 60 * 1000;
+  // Calculate UTC time by subtracting the offset
+  const utcTime = localTime - getTimezoneOffset() * 60 * 60 * 1000;
+  return {
+    hours: Math.floor( utcTime / ( 60 * 60 * 1000 ) ),
+    minutes: Math.floor( ( utcTime % ( 60 * 60 * 1000 ) ) / ( 60 * 1000 ) )
+  };
+}
+
+// Convert UTC time to local time
+function utcToLocal ( hours, minutes ) {
+  // Convert hours and minutes to milliseconds
+  const utcTime = hours * 60 * 60 * 1000 + minutes * 60 * 1000;
+  // Calculate local time by adding the offset
+  const localTime = utcTime + getTimezoneOffset() * 60 * 60 * 1000;
+  return {
+    hours: Math.floor( localTime / ( 60 * 60 * 1000 ) ),
+    minutes: Math.floor( ( localTime % ( 60 * 60 * 1000 ) ) / ( 60 * 1000 ) )
+  };
+}
+
+function getTimezoneOffset () {
+  const currentDate = new Date();
+  // Get the timezone offset in minutes
+  const offsetInMinutes = currentDate.getTimezoneOffset();
+  // Convert the offset to hours
+  const offsetInHours = offsetInMinutes / 60;
+  return offsetInHours;
+}
+
+
+
 function getAppUrl() {
   return 'https://play.google.com/store/apps/details?id=nic.goi.aarogyasetu&hl=en';
 }
@@ -110,4 +150,6 @@ export {
   getAppUrl,
   getRateAppLink,
   getRandomNumber,
+  utcToLocal,
+  localToUTC,
 };

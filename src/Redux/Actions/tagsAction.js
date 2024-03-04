@@ -47,7 +47,6 @@ export function getTagVerses ( tagId ) {
                 tag: tagId,
             } )
             .then( response => {
-                console.log( response )
                 if ( response.ok ) {
                     dispatch( {
                         type: GET_TAGS_VERSES_SUCCESS,

@@ -2,7 +2,7 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import Modal from '../Modal';
 import TimePicker from './index';
-import {getColorTheme, getFontSize, responsiveWidth} from '../../Utils/Helper';
+import { utcToLocal } from '../../Utils/Helper';
 import {useDispatch, useSelector} from 'react-redux';
 import {changeReminderTime} from '../../Redux/Actions';
 import styles from './styles';
@@ -12,7 +12,10 @@ const TimePickerModal = ({visible, onToggle}) => {
   const dispatch = useDispatch();
   const {t} = useTranslation();
   const {reminderTime} = useSelector(state => state.app);
-  const [clock, setClock] = useState(reminderTime);
+  const convertTimeHour = utcToLocal( reminderTime.hours, reminderTime.minutes ).hours
+  const convertTimeMin = utcToLocal( reminderTime.hours, reminderTime.minutes ).minutes
+
+  const [ clock, setClock ] = useState( { "hours": convertTimeHour, "minutes": convertTimeMin } );
 
   return (
     <Modal isVisible={visible} onToggle={onToggle}>

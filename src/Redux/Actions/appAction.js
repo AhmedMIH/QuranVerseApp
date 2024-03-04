@@ -14,6 +14,7 @@ import {
   CHANGE_BACKGROUND_SUCCESS,
 } from './Types';
 import { I18nManager } from 'react-native';
+import messaging from '@react-native-firebase/messaging';
 
 export function changeMode ( darkMode ) {
   return async dispatch => {
@@ -40,16 +41,24 @@ export function changeNotificationState ( state ) {
     } );
     await requestNotifications( [ 'alert', 'sound' ] )
       .then( async ( { status } ) => {
-        if ( state !== null ) {
-
-          dispatch( {
-            type: CHANGE_NOTIFICATION_STATE_SUCCESS,
-            payload: state,
-          } );
-          if ( state ) {
-            await messaging().requestPermission();
-            const token = await messaging().getToken();
-            console.log( token )
+        if ( status !== null ) {
+          if ( status ) {
+            const authStatus = await messaging().requestPermission();
+            const enabled =
+              authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+              authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+            if ( enabled ) {
+              console.log( 'Authorization status:', authStatus );
+              dispatch( {
+                type: CHANGE_NOTIFICATION_STATE_SUCCESS,
+                payload: status === 'granted',
+              } );
+            } else {
+              dispatch( {
+                type: CHANGE_NOTIFICATION_STATE_SUCCESS,
+                payload: false
+              } );
+            }
           }
         } else {
           dispatch( {

@@ -33,4 +33,9 @@ const dark = {
   text: '#FFF',
 };
 
-export default {light, dark};
+const themes = {
+  'light': { ...light },
+  'dark': { ...dark },
+};
+export default themes;
+

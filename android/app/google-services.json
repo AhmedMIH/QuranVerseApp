@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "852003163260",
+    "project_id": "verseapp-ad2b4",
+    "storage_bucket": "verseapp-ad2b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852003163260:android:7db5116df7787b602f0df9",
+        "android_client_info": {
+          "package_name": "com.quranverseapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDVPdfCofYrAGBgLwf3Ax0r3gLjWLSrn4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

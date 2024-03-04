@@ -1,4 +1,5 @@
 import images from '../../Images';
+import { localToUTC } from '../../Utils/Helper';
 import {
   CHANGE_MODE_START,
   CHANGE_MODE_SUCCESS,
@@ -52,7 +53,8 @@ export default (state = INIT_STATE, action) => {
       return {...state, loading: false, notificationState: action.payload};
 
     case CHANGE_REMINDER_TIME:
-      return {...state, reminderTime: action.payload};
+      const { hours, minutes } = localToUTC( action.payload.hours, action.payload.minutes );
+      return { ...state, reminderTime: { hours, minutes } };
 
     case CHANGE_LANGUAGE_START:
       return {

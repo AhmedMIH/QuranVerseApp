@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useTranslation} from 'react-i18next';
 import {Switch} from 'react-native-paper';
 import styles from '../styles';
-import {formatTime, getColorTheme} from '../../../Utils/Helper';
+import { formatTime, getColorTheme, utcToLocal } from '../../../Utils/Helper';
 import {changeNotificationState} from '../../../Redux/Actions';
 import TimePickerModal from '../../TimePicker/TimePickerModal';
 
@@ -15,7 +15,9 @@ const index = () => {
   const [isExpand, setIsExpand] = useState(false);
   const [visible, setVisible] = useState(false);
   const {reminderTime, notificationState} = useSelector(state => state.app);
-  const formattedTime = formatTime(reminderTime.hours, reminderTime.minutes);
+  const convertTimeHour = utcToLocal( reminderTime.hours, reminderTime.minutes ).hours
+  const convertTimeMin = utcToLocal( reminderTime.hours, reminderTime.minutes ).minutes
+  const formattedTime = formatTime( convertTimeHour, convertTimeMin );
 
   return (
     <View style={styles.outerContainer}>
