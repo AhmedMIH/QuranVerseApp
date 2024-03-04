@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {
-  getColorTheme,
+  getThemeColor,
   getFontSize,
   responsiveHeight,
   responsiveWidth,
@@ -21,6 +21,6 @@ export default styles = ( darkMode ) => StyleSheet.create( {
     lineHeight: 22,
     textAlignVertical: 'center',
     textAlign: 'center',
-    color: getColorTheme( darkMode ).text,
+    color: getThemeColor( darkMode ).text,
   },
 });

@@ -7,19 +7,21 @@ import HomeScreen from '../Screens/HomeScreen';
 import FavoritesScreen from '../Screens/FavoritesScreen';
 import SettingScreen from '../Screens/SettingScreen';
 import SearchScreen from '../Screens/SearchScreen';
-import {getColorTheme} from '../Utils/Helper';
+import { getThemeColor } from '../Utils/Helper';
 import {useTranslation} from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 const MainTabNavigation = () => {
   const MainTab = createMaterialBottomTabNavigator();
   const {t} = useTranslation();
+  const { darkMode } = useSelector( ( state ) => state.app );
 
   return (
     <MainTab.Navigator
-      activeColor={getColorTheme().activeText}
-      inactiveColor={getColorTheme().darkPrimary}
-      barStyle={{backgroundColor: getColorTheme().primary}}
-      activeIndicatorStyle={{backgroundColor: getColorTheme().lightPrimary}}>
+      activeColor={getThemeColor( darkMode ).activeText}
+      inactiveColor={getThemeColor( darkMode ).darkPrimary}
+      barStyle={{ backgroundColor: getThemeColor( darkMode ).primary }}
+      activeIndicatorStyle={{ backgroundColor: getThemeColor( darkMode ).lightPrimary }}>
       <MainTab.Screen
         name={t('17')}
         component={HomeScreen}
@@ -27,7 +29,7 @@ const MainTabNavigation = () => {
           tabBarIcon: ({focused}) => (
             <Octicons
               name={focused ? 'home' : 'home'}
-              color={getColorTheme().darkPrimary}
+              color={getThemeColor( darkMode ).darkPrimary}
               size={24}
             />
           ),
@@ -40,7 +42,7 @@ const MainTabNavigation = () => {
           tabBarIcon: ({focused}) => (
             <MaterialIcons
               name={focused ? 'favorite' : 'favorite-border'}
-              color={getColorTheme().darkPrimary}
+              color={getThemeColor( darkMode ).darkPrimary}
               size={24}
             />
           ),
@@ -53,7 +55,7 @@ const MainTabNavigation = () => {
           tabBarIcon: ({focused}) => (
             <Ionicons
               name={focused ? 'search-sharp' : 'search'}
-              color={getColorTheme().darkPrimary}
+              color={getThemeColor( darkMode ).darkPrimary}
               size={24}
             />
           ),
@@ -66,7 +68,7 @@ const MainTabNavigation = () => {
           tabBarIcon: ({focused}) => (
             <Ionicons
               name={focused ? 'settings-sharp' : 'settings-outline'}
-              color={getColorTheme().darkPrimary}
+              color={getThemeColor( darkMode ).darkPrimary}
               size={24}
             />
           ),

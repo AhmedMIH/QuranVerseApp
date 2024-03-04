@@ -3,7 +3,7 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import styles from '../styles';
-import {getColorTheme} from '../../../Utils/Helper';
+import { getThemeColor } from '../../../Utils/Helper';
 import { useSelector } from 'react-redux';
 
 const index = () => {
@@ -17,7 +17,7 @@ const index = () => {
         <Ionicons
           name="help-circle-outline"
           size={24}
-          color={getColorTheme( darkMode ).darkPrimary}
+          color={getThemeColor( darkMode ).darkPrimary}
         />
       </TouchableOpacity>
     </View>

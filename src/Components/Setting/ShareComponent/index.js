@@ -3,7 +3,7 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from '../styles';
-import {getAppUrl, getColorTheme} from '../../../Utils/Helper';
+import { getAppUrl, getThemeColor } from '../../../Utils/Helper';
 import { useSelector } from 'react-redux';
 
 const index = () => {
@@ -40,7 +40,7 @@ const index = () => {
         <MaterialCommunityIcons
           name="share-variant-outline"
           size={24}
-          color={getColorTheme( darkMode ).darkPrimary}
+          color={getThemeColor( darkMode ).darkPrimary}
         />
       </TouchableOpacity>
     </View>

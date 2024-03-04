@@ -5,7 +5,7 @@ import ItemList from './ItemList';
 import {useTranslation} from 'react-i18next';
 import images from '../../../Images';
 import Colors from '../../../Utils/Colors';
-import {getColorTheme} from '../../../Utils/Helper';
+import { getThemeColor } from '../../../Utils/Helper';
 import RandomizeList from './Randomize/RandomizeList';
 import { useSelector } from 'react-redux';
 
@@ -23,14 +23,14 @@ const SelectThemeContainer = ({onToggle}) => {
   ];
 
   const colorList = [
-    getColorTheme().lemon,
-    getColorTheme().pastel,
-    getColorTheme().pink,
-    getColorTheme().lavender,
-    getColorTheme().lightPrimary,
-    getColorTheme().diamond,
-    getColorTheme().pinkLace,
-    getColorTheme().lightPastel,
+    getThemeColor().lemon,
+    getThemeColor().pastel,
+    getThemeColor().pink,
+    getThemeColor().lavender,
+    getThemeColor().lightPrimary,
+    getThemeColor().diamond,
+    getThemeColor().pinkLace,
+    getThemeColor().lightPastel,
   ];
 
   const randomizeList = [[...colorList], [...imageList]];

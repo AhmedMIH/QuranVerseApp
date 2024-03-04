@@ -4,7 +4,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {Menu} from 'react-native-paper';
 import {useTranslation} from 'react-i18next';
-import {getColorTheme, responsiveWidth} from '../../Utils/Helper';
+import { getThemeColor, responsiveWidth } from '../../Utils/Helper';
 import styles from './styles';
 import { useSelector } from 'react-redux';
 const OptionMenu = ({
@@ -23,7 +23,7 @@ const OptionMenu = ({
       visible={visible}
       onDismiss={closeMenu}
       contentStyle={{
-        backgroundColor: getColorTheme( darkMode ).lightPrimary,
+        backgroundColor: getThemeColor( darkMode ).lightPrimary,
         width: 120,
       }}
       anchor={
@@ -33,7 +33,7 @@ const OptionMenu = ({
           <MaterialIcons
             name="more-vert"
             size={24}
-            color={getColorTheme( darkMode ).darkPrimary}
+            color={getThemeColor( darkMode ).darkPrimary}
           />
         </TouchableOpacity>
       }>
@@ -48,7 +48,7 @@ const OptionMenu = ({
         <FontAwesome
           name="trash-o"
           size={24}
-          color={getColorTheme( darkMode ).darkPrimary}
+          color={getThemeColor( darkMode ).darkPrimary}
         />
       </TouchableOpacity>
       <TouchableOpacity
@@ -61,7 +61,7 @@ const OptionMenu = ({
         <Text style={styles( darkMode ).optionText}>{t( '12' )}</Text>
         <MaterialIcons
           name={'ios-share'}
-          color={getColorTheme( darkMode ).darkPrimary}
+          color={getThemeColor( darkMode ).darkPrimary}
           size={24}
         />
       </TouchableOpacity>

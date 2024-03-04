@@ -1,8 +1,7 @@
 // App.jsx
 import { BaseToast } from 'react-native-toast-message';
 import { View, Text } from 'react-native';
-import { getFontSize, responsiveHeight, responsiveWidth } from './Helper';
-import colors from './Colors';
+import { getFontSize, getThemeColor, responsiveHeight, responsiveWidth } from './Helper';
 
 /*
   1. Create the config
@@ -33,11 +32,11 @@ const toastConfig = {
                 height: responsiveHeight( 48 ),
                 width: responsiveWidth( 326 ),
                 borderRadius: 8,
-                backgroundColor: '#D83B57',
+                backgroundColor: getThemeColor( false ).errorBackground,
                 alignItems: 'center',
                 justifyContent: 'center',
             }}>
-            <Text style={{ backgroundColor: colors.white, fontSize: getFontSize( 16 ), fontWeight: '400' }} >
+            <Text style={{ backgroundColor: getThemeColor( false ).white, fontSize: getFontSize( 16 ), fontWeight: '400' }} >
                 {text1}
             </Text>
         </View>

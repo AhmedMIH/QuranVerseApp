@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import styles from '../styles';
-import { getColorTheme } from '../../../Utils/Helper';
+import { getThemeColor } from '../../../Utils/Helper';
 import BottomSheet from '../../BottomSheet';
 import SelectThemeContainer from './SelectThemeContainer';
 import { useSelector } from 'react-redux';
@@ -20,7 +20,7 @@ const index = () => {
         <MaterialIcons
           name="imagesearch-roller"
           size={24}
-          color={getColorTheme( darkMode ).darkPrimary}
+          color={getThemeColor( darkMode ).darkPrimary}
         />
       </TouchableOpacity>
       <BottomSheet isVisible={modalVisible} onToggle={setModalVisible}>

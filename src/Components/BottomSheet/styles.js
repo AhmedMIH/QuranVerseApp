@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import { getColorTheme, responsiveHeight, responsiveWidth } from '../../Utils/Helper';
+import { getThemeColor, responsiveHeight, responsiveWidth } from '../../Utils/Helper';
 
 export default styles = ( darkMode ) => StyleSheet.create( {
   modal: {
@@ -9,14 +9,14 @@ export default styles = ( darkMode ) => StyleSheet.create( {
   },
   outerContainer: {
     flex: 1,
-    backgroundColor: getColorTheme( darkMode ).modalBackground,
+    backgroundColor: getThemeColor( darkMode ).modalBackground,
     justifyContent: 'center',
     alignItems: 'center',
   },
   innerContainer: {
     borderTopEndRadius: 8,
     borderTopStartRadius: 8,
-    backgroundColor: 'white',
+    backgroundColor: getThemeColor( darkMode ).white,
     position: 'absolute',
     bottom: 0,
     paddingHorizontal: responsiveWidth(16),

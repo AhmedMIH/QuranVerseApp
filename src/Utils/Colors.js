@@ -16,6 +16,7 @@ const commonColor = {
   diamond: '#C4E1FC',
   pinkLace: '#FED4FF',
   lightPastel: '#D0DFCD',
+  errorBackground: "#D83B57"
 };
 
 const light = {

@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {
-  getColorTheme,
+  getThemeColor,
   getFontSize,
   responsiveHeight,
   responsiveWidth,
@@ -9,11 +9,11 @@ import {
 export default styles = ( darkMode ) => StyleSheet.create( {
   container: {
     marginHorizontal: responsiveWidth(16),
-    backgroundColor: getColorTheme( darkMode ).white,
+    backgroundColor: getThemeColor( darkMode ).white,
   },
   outerContainer: {
     borderBottomWidth: 0.75,
-    borderBottomColor: getColorTheme( darkMode ).borderColor,
+    borderBottomColor: getThemeColor( darkMode ).borderColor,
   },
   innerContainer: {
     flex: 1,
@@ -24,7 +24,7 @@ export default styles = ( darkMode ) => StyleSheet.create( {
     justifyContent: 'center',
     borderBottomWidth: 0.75,
     paddingHorizontal: responsiveWidth(16),
-    borderBottomColor: getColorTheme( darkMode ).borderColor,
+    borderBottomColor: getThemeColor( darkMode ).borderColor,
   },
   mainText: {
     flex: 1,
@@ -33,7 +33,7 @@ export default styles = ( darkMode ) => StyleSheet.create( {
     lineHeight: 24,
     textAlignVertical: 'center',
     letterSpacing: 0.5,
-    color: getColorTheme( darkMode ).text,
+    color: getThemeColor( darkMode ).text,
   },
   expandItem: {
     flex: 1,
@@ -49,6 +49,6 @@ export default styles = ( darkMode ) => StyleSheet.create( {
     fontSize: getFontSize(16),
     lineHeight: 24,
     letterSpacing: 0.5,
-    color: getColorTheme( darkMode ).text,
+    color: getThemeColor( darkMode ).text,
   },
 });

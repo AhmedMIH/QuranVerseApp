@@ -1,4 +1,4 @@
-import {getColorTheme} from './Helper';
+import { getThemeColor } from './Helper';
 import {MD3LightTheme as DefaultTheme} from 'react-native-paper';
 export default theme = {
   ...DefaultTheme,
@@ -7,7 +7,7 @@ export default theme = {
   // Specify custom property in nested object
   colors: {
     ...DefaultTheme.colors,
-    primary: getColorTheme().fillProgressBar,
+    primary: getThemeColor().fillProgressBar,
     primaryContainer: '#F2E48A',
     secondaryContainer: '#FFDBCD',
     surfaceVariant: '#F1DFD8',

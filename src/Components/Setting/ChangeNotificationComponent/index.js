@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Switch } from 'react-native-paper';
 import styles from '../styles';
-import { formatTime, getColorTheme, utcToLocal } from '../../../Utils/Helper';
+import { formatTime, getThemeColor, utcToLocal } from '../../../Utils/Helper';
 import { changeNotificationState } from '../../../Redux/Actions';
 import TimePickerModal from '../../TimePicker/TimePickerModal';
 
@@ -26,7 +26,7 @@ const index = () => {
           styles( darkMode ).innerContainer,
           {
             borderBottomWidth: 0,
-            borderBottomColor: getColorTheme( darkMode ).borderColor,
+            borderBottomColor: getThemeColor( darkMode ).borderColor,
           },
         ]}>
         <Text style={styles( darkMode ).mainText}>{t( '8' )}</Text>
@@ -34,7 +34,7 @@ const index = () => {
           <MaterialIcons
             name={isExpand ? 'expand-less' : 'expand-more'}
             size={24}
-            color={getColorTheme( darkMode ).darkPrimary}
+            color={getThemeColor( darkMode ).darkPrimary}
           />
         </TouchableOpacity>
       </View>
@@ -46,7 +46,7 @@ const index = () => {
               style={{ marginRight: -6 }}
               value={notificationState}
               onValueChange={value => dispatch( changeNotificationState( value ) )}
-              color={getColorTheme( darkMode ).fillProgressBar}
+              color={getThemeColor( darkMode ).fillProgressBar}
             />
           </View>
           <View style={styles( darkMode ).expandItem}>

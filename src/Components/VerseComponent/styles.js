@@ -1,10 +1,10 @@
 import {Dimensions, StyleSheet} from 'react-native';
-import {getColorTheme, getFontSize, responsiveWidth} from '../../Utils/Helper';
+import { getThemeColor, getFontSize, responsiveWidth } from '../../Utils/Helper';
 
 const textStyle = darkMode => ( {
   textAlign: 'center',
   textAlignVertical: 'center',
-  color: getColorTheme( darkMode ).text,
+  color: getThemeColor( darkMode ).text,
 } )
 
 const {width} = Dimensions.get('window');

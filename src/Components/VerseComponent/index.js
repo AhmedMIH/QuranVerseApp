@@ -11,7 +11,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import ViewShot, { captureRef } from 'react-native-view-shot';
 import { useSelector } from 'react-redux';
 import Share from 'react-native-share';
-import { getColorTheme, responsiveWidth } from '../../Utils/Helper';
+import { getThemeColor, responsiveWidth } from '../../Utils/Helper';
 import styles from './styles';
 import VerticalSpace from '../VerticalSpace';
 import FavIcon from '../FavList/FavIcon';
@@ -66,7 +66,7 @@ const index = ( { item } ) => {
               style={{ justifyContent: 'center' }}>
               <MaterialIcons
                 name={'ios-share'}
-                color={getColorTheme( darkMode ).darkPrimary}
+                color={getThemeColor( darkMode ).darkPrimary}
                 size={24}
               />
             </TouchableOpacity>

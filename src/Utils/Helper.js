@@ -64,10 +64,10 @@ export const getThemeColor = ( darkMode ) => {
 };
 const getRandomColor = () => {
   const colors = [
-    getColorTheme().seashell,
-    getColorTheme().pink,
-    getColorTheme().pastel,
-    getColorTheme().lemon,
+    getThemeColor().seashell,
+    getThemeColor().pink,
+    getThemeColor().pastel,
+    getThemeColor().lemon,
   ];
   let randomIndex;
   do {

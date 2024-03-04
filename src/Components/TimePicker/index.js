@@ -1,7 +1,7 @@
 import {View} from 'react-native';
 import React, {useCallback, useState} from 'react';
 import {TimePicker} from 'react-native-paper-dates';
-import {getColorTheme, getFontSize, responsiveHeight} from '../../Utils/Helper';
+import { getThemeColor, getFontSize, responsiveHeight } from '../../Utils/Helper';
 import styles from './styles';
 import { useSelector } from 'react-redux';
 

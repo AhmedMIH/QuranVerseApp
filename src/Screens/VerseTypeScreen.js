@@ -18,11 +18,11 @@ const VerseTypeScreen = ( { route, loading, getTagVerses, verses } ) => {
   return (
     <Container>
       <Spinner visible={loading} />
-      <SearchBar
+      {/* <SearchBar
         style={{ marginHorizontal: 30 }}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
-      />
+      /> */}
       <Header title={item.name} haveBack={true} />
       <VersesAboutListPresentational verses={verses} type={2} />
     </Container>

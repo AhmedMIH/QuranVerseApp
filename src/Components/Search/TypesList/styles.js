@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {
-  getColorTheme,
+  getThemeColor,
   getFontSize,
   responsiveHeight,
   responsiveWidth,
@@ -22,6 +22,6 @@ export default style = ( bg, darkMode ) =>
       fontSize: getFontSize(14),
       lineHeight: 20,
       letterSpacing: 0.1,
-      color: getColorTheme( darkMode ).darkPrimary,
+      color: getThemeColor( darkMode ).darkPrimary,
     },
   });

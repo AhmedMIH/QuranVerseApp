@@ -2,7 +2,7 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import styles from './styles';
-import {getColorTheme} from '../../Utils/Helper';
+import { getThemeColor } from '../../Utils/Helper';
 import {useNavigation} from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 
@@ -21,7 +21,7 @@ const index = ({title, haveBack}) => {
           <MaterialIcons
             name="arrow-back-ios"
             size={24}
-            color={getColorTheme( darkMode ).darkPrimary}
+            color={getThemeColor( darkMode ).darkPrimary}
           />
         )}
       </TouchableOpacity>

@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {
-  getColorTheme,
+  getThemeColor,
   getFontSize,
   responsiveHeight,
   responsiveWidth,
@@ -9,12 +9,13 @@ import {
 export default styles = ( darkMode ) => StyleSheet.create( {
   modalContainer: {
     flex: 1,
+    backgroundColor: getThemeColor( darkMode ).white,
   },
   modalItemTitle: {
     fontSize: getFontSize(16),
     fontWeight: '500',
     lineHeight: 24,
-    color: getColorTheme( darkMode ).darkPrimary,
+    color: getThemeColor( darkMode ).darkPrimary,
   },
   item: {
     height: responsiveHeight(150),

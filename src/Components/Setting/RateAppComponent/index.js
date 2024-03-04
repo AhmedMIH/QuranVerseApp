@@ -3,7 +3,7 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import styles from '../styles';
-import {getColorTheme, getRateAppLink} from '../../../Utils/Helper';
+import { getThemeColor, getRateAppLink } from '../../../Utils/Helper';
 import { useSelector } from 'react-redux';
 
 const index = () => {
@@ -25,7 +25,7 @@ const index = () => {
         <MaterialIcons
           name="star-outline"
           size={24}
-          color={getColorTheme( darkMode ).darkPrimary}
+          color={getThemeColor( darkMode ).darkPrimary}
         />
       </TouchableOpacity>
     </View>

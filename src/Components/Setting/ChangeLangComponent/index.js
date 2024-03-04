@@ -2,10 +2,10 @@ import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {useTranslation} from 'react-i18next';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import {changeLanguage} from '../../../Redux/Actions';
 import styles from '../styles';
-import {getColorTheme} from '../../../Utils/Helper';
+import { getThemeColor } from '../../../Utils/Helper';
 
 const index = ( { changeLanguage, isRTL, darkMode } ) => {
   const {t} = useTranslation();
@@ -16,7 +16,7 @@ const index = ( { changeLanguage, isRTL, darkMode } ) => {
         <MaterialIcons
           name="language"
           size={24}
-          color={getColorTheme().darkPrimary}
+          color={getThemeColor( darkMode ).darkPrimary}
         />
       </TouchableOpacity>
     </View>

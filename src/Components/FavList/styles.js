@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {
-  getColorTheme,
+  getThemeColor,
   getFontSize,
   responsiveHeight,
   responsiveWidth,
@@ -25,20 +25,20 @@ export default styles = ( darkMode ) => StyleSheet.create( {
     paddingHorizontal: responsiveWidth(24),
     paddingVertical: responsiveHeight(16),
     borderBottomWidth: 0.75,
-    borderBottomColor: getColorTheme( darkMode ).borderColor,
+    borderBottomColor: getThemeColor( darkMode ).borderColor,
   },
   verseText: {
     fontSize: getFontSize(14),
     lineHeight: 20,
     letterSpacing: 0.25,
-    color: getColorTheme( darkMode ).text,
+    color: getThemeColor( darkMode ).text,
     fontWeight: '400',
   },
   surahText: {
     fontSize: getFontSize(12),
     lineHeight: 16,
     fontWeight: '500',
-    color: getColorTheme( darkMode ).text,
+    color: getThemeColor( darkMode ).text,
     marginTop: responsiveHeight(8),
   },
   optionContainer: {
@@ -46,12 +46,12 @@ export default styles = ( darkMode ) => StyleSheet.create( {
     paddingHorizontal: 12,
     paddingVertical: 16,
     justifyContent: 'space-between',
-    backgroundColor: getColorTheme( darkMode ).lightPrimary,
+    backgroundColor: getThemeColor( darkMode ).lightPrimary,
   },
   optionText: {
     fontSize: getFontSize(16),
     lineHeight: 24,
     fontWeight: '400',
-    color: getColorTheme( darkMode ).text,
+    color: getThemeColor( darkMode ).text,
   },
 });
