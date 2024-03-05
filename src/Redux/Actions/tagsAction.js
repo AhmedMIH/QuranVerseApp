@@ -34,7 +34,6 @@ export function getTags ( page ) {
 }
 
 export function getTagVerses ( tagId ) {
-    console.log( "getTagVerses" )
     return async dispatch => {
         dispatch( {
             type: GET_TAGS_VERSES_START,

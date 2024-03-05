@@ -36,7 +36,7 @@ const toastConfig = {
                 alignItems: 'center',
                 justifyContent: 'center',
             }}>
-            <Text style={{ backgroundColor: getThemeColor( false ).white, fontSize: getFontSize( 16 ), fontWeight: '400' }} >
+            <Text style={{ fontSize: getFontSize( 16 ), fontWeight: '400' }} >
                 {text1}
             </Text>
         </View>

@@ -22,7 +22,7 @@ export function getVerses ( page ) {
             type: GET_VERSES_FAILED,
             payload: response.data,
           } );
-          dispatch( errorHandling( "something went wrong please try again later" ) )
+          dispatch( errorHandling( "35" ) )
         }
       } )
       .catch( err => {
