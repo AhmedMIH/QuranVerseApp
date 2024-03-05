@@ -3,16 +3,19 @@ import Spinner from 'react-native-loading-spinner-overlay';
 import { FlatList, View } from 'react-native';
 import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Share from 'react-native-share';
 import { getThemeColor } from '../../Utils/Helper';
 import EmptyComponent from '../EmptyComponent';
 import VerseComponent from '../VerseComponent';
 import FavItem from './FavItem';
+import { errorHandling } from '../../Redux/Actions';
 
 const FavsList = ( { verses, type } ) => {
   const { favs } = useSelector( state => state.fav );
   const { darkMode } = useSelector( state => state.app );
+
+  const dispatch = useDispatch()
 
   const { t } = useTranslation()
 
@@ -32,7 +35,7 @@ const FavsList = ( { verses, type } ) => {
       } );
       await Share.open( { url: uri } );
     } catch ( e ) {
-      console.log( e );
+      dispatch( errorHandling( 35 ) )
     }
     setLoading( false )
   };

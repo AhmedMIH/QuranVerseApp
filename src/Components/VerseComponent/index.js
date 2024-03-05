@@ -9,17 +9,20 @@ import React, { useRef } from 'react';
 import Spinner from 'react-native-loading-spinner-overlay';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import ViewShot, { captureRef } from 'react-native-view-shot';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Share from 'react-native-share';
 import { getThemeColor, responsiveWidth } from '../../Utils/Helper';
 import styles from './styles';
 import VerticalSpace from '../VerticalSpace';
 import FavIcon from '../FavList/FavIcon';
+import { errorHandling } from '../../Redux/Actions';
 
 const index = ( { item } ) => {
   const { loading } = useSelector( state => state.fav );
   const { darkMode } = useSelector( state => state.app )
   const { backgroundType, backgroundImage } = useSelector( state => state.app );
+
+  const dispatch = useDispatch()
 
   const ref = useRef();
 
@@ -31,7 +34,8 @@ const index = ( { item } ) => {
       } );
       await Share.open( { url: uri } );
     } catch ( e ) {
-      console.log( e );
+      dispatch( errorHandling( 35 ) )
+
     }
   };
 

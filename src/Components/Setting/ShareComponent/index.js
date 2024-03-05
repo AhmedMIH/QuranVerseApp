@@ -4,11 +4,13 @@ import {useTranslation} from 'react-i18next';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from '../styles';
 import { getAppUrl, getThemeColor } from '../../../Utils/Helper';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { errorHandling } from '../../../Redux/Actions';
 
 const index = () => {
   const {t} = useTranslation();
   const { darkMode } = useSelector( ( state ) => state.app );
+  const dispatch = useDispatch()
 
   const onPressShare = async () => {
     try {
@@ -27,7 +29,7 @@ const index = () => {
         // dismissed
       }
     } catch (error) {
-      console.log(error);
+      dispatch( errorHandling( 35 ) )
     }
   };
   return (

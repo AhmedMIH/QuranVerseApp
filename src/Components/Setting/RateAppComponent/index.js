@@ -4,18 +4,20 @@ import {useTranslation} from 'react-i18next';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import styles from '../styles';
 import { getThemeColor, getRateAppLink } from '../../../Utils/Helper';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { errorHandling } from '../../../Redux/Actions';
 
 const index = () => {
   const {t} = useTranslation();
   const { darkMode } = useSelector( ( state ) => state.app );
+  const dispatch = useDispatch()
 
   const handleClick = () => {
     Linking.canOpenURL(getRateAppLink()).then(
       supported => {
         supported && Linking.openURL(getRateAppLink());
       },
-      err => console.log(err),
+      err => dispatch( errorHandling( 35 ) )
     );
   };
   return (
