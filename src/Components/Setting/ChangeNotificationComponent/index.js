@@ -19,6 +19,8 @@ const index = () => {
   const convertTimeMin = utcToLocal( reminderTime.hours, reminderTime.minutes ).minutes
   const formattedTime = formatTime( convertTimeHour, convertTimeMin );
 
+  console.log( notificationState )
+
   return (
     <View style={styles( darkMode ).outerContainer}>
       <View

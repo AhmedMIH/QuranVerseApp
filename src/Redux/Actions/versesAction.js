@@ -26,6 +26,7 @@ export function getVerses ( page ) {
         }
       } )
       .catch( err => {
+        dispatch( errorHandling( "35" ) )
         dispatch( {
           type: GET_VERSES_FAILED,
           payload: err,

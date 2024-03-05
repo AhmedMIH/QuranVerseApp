@@ -40,6 +40,7 @@ export default styles = ( darkMode ) => StyleSheet.create( {
     fontWeight: '500',
     color: getThemeColor( darkMode ).text,
     marginTop: responsiveHeight(8),
+    alignSelf: "flex-start"
   },
   optionContainer: {
     flexDirection: 'row',

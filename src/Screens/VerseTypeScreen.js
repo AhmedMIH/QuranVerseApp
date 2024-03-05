@@ -1,15 +1,12 @@
 import Spinner from 'react-native-loading-spinner-overlay';
-import React, { useEffect, useState } from 'react';
-import VersesAboutListPresentational from '../Components/VersesAboutListPresentational';
-import Container from '../Components/Container';
-import SearchBar from '../Components/Search/SearchBar';
-import Header from '../Components/Header';
-import { getTagVerses } from '../Redux/Actions';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import VersesAboutListPresentational from '../Components/VersesAboutListPresentational';
+import { getTagVerses } from '../Redux/Actions';
+import Container from '../Components/Container';
+import Header from '../Components/Header';
 const VerseTypeScreen = ( { route, loading, getTagVerses, verses } ) => {
-  const [ searchQuery, setSearchQuery ] = useState( '' );
   const item = route.params.type;
-  console.log( 'item', item )
 
   useEffect( () => {
     getTagVerses( item.id )
@@ -18,13 +15,8 @@ const VerseTypeScreen = ( { route, loading, getTagVerses, verses } ) => {
   return (
     <Container>
       <Spinner visible={loading} />
-      {/* <SearchBar
-        style={{ marginHorizontal: 30 }}
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-      /> */}
       <Header title={item.name} haveBack={true} />
-      <VersesAboutListPresentational verses={verses} type={2} />
+      <VersesAboutListPresentational verses={verses} type={2} onRefresh={() => getTagVerses( item.id )} />
     </Container>
   );
 };

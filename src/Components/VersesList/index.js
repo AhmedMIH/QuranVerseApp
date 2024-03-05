@@ -1,10 +1,11 @@
 import { Animated, FlatList } from 'react-native';
 import React, { useEffect, useRef, useState } from 'react';
+import Spinner from 'react-native-loading-spinner-overlay';
+import { useTranslation } from 'react-i18next';
+import { connect } from 'react-redux';
 import VerseComponent from '../VerseComponent';
 import { getVerses } from '../../Redux/Actions';
-import { connect, useSelector } from 'react-redux';
 import EmptyComponent from '../EmptyComponent';
-import { useTranslation } from 'react-i18next';
 
 const index = ( { verses, getVerses, next, page, loading, refresh } ) => {
   const [ scrollViewWidth, setScrollViewWidth ] = useState( 0 );
@@ -25,6 +26,7 @@ const index = ( { verses, getVerses, next, page, loading, refresh } ) => {
 
   return (
     <>
+      <Spinner visible={loading} />
       <FlatList
         contentContainerStyle={{ flexGrow: 1 }}
         data={verses}
@@ -49,7 +51,7 @@ const index = ( { verses, getVerses, next, page, loading, refresh } ) => {
         onScroll={Animated.event( [ { nativeEvent: { contentOffset: { x: pan.x } } } ], {
           useNativeDriver: false,
         } )}
-        ListEmptyComponent={<EmptyComponent text={t( 34 )} />}
+        ListEmptyComponent={<EmptyComponent text={t( 34 )} onPressRefresh={() => getVerses( page )} />}
 
       />
     </>

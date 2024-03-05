@@ -13,6 +13,7 @@ export default styles = ( darkMode ) => StyleSheet.create( {
     justifyContent: 'space-between',
     height: responsiveHeight(54),
     paddingHorizontal: responsiveWidth(16),
+    backgroundColor: getThemeColor( darkMode ).white,
   },
   title: {
     flex: 1,

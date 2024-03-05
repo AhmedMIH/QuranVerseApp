@@ -39,40 +39,47 @@ export function changeNotificationState ( state ) {
     dispatch( {
       type: CHANGE_NOTIFICATION_STATE_START,
     } );
-    await requestNotifications( [ 'alert', 'sound' ] )
-      .then( async ( { status } ) => {
-        if ( status !== null ) {
-          if ( status ) {
-            const authStatus = await messaging().requestPermission();
-            const enabled =
-              authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
-              authStatus === messaging.AuthorizationStatus.PROVISIONAL;
-            if ( enabled ) {
-              console.log( 'Authorization status:', authStatus );
-              dispatch( {
-                type: CHANGE_NOTIFICATION_STATE_SUCCESS,
-                payload: status === 'granted',
-              } );
-            } else {
-              dispatch( {
-                type: CHANGE_NOTIFICATION_STATE_SUCCESS,
-                payload: false
-              } );
+    if ( state ) {
+      await requestNotifications( [ 'alert', 'sound' ] )
+        .then( async ( { status } ) => {
+          if ( status !== null ) {
+            if ( status ) {
+              const authStatus = await messaging().requestPermission();
+              const enabled =
+                authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+                authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+              if ( enabled ) {
+                console.log( 'Authorization status:', authStatus );
+                dispatch( {
+                  type: CHANGE_NOTIFICATION_STATE_SUCCESS,
+                  payload: status === 'granted',
+                } );
+              } else {
+                dispatch( {
+                  type: CHANGE_NOTIFICATION_STATE_SUCCESS,
+                  payload: false
+                } );
+              }
             }
+          } else {
+            dispatch( {
+              type: CHANGE_NOTIFICATION_STATE_SUCCESS,
+              payload: status === 'granted',
+            } );
           }
-        } else {
+        } )
+        .catch( err => {
           dispatch( {
-            type: CHANGE_NOTIFICATION_STATE_SUCCESS,
-            payload: status === 'granted',
+            type: CHANGE_NOTIFICATION_STATE_FAILED,
+            payload: false,
           } );
-        }
-      } )
-      .catch( err => {
-        dispatch( {
-          type: CHANGE_NOTIFICATION_STATE_FAILED,
-          payload: false,
         } );
-      } );
+    } else {
+      dispatch( {
+        type: CHANGE_NOTIFICATION_STATE_SUCCESS,
+        payload: state
+      } )
+    }
   };
 }
 

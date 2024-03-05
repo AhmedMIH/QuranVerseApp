@@ -2,8 +2,10 @@ import { FlatList, StyleSheet } from 'react-native';
 import React from 'react';
 import TypeItem from './TypeItem';
 import EmptyComponent from '../../EmptyComponent';
+import { useTranslation } from 'react-i18next';
 
-const index = ( { tags } ) => {
+const index = ( { tags, onRefresh } ) => {
+  const { t } = useTranslation()
 
   return (
     <FlatList
@@ -14,7 +16,7 @@ const index = ( { tags } ) => {
       data={tags}
       keyExtractor={( item, index ) => item.id}
       renderItem={( { item, index } ) => <TypeItem index={index} item={item} />}
-      ListEmptyComponent={<EmptyComponent text={'No Types'} />}
+      ListEmptyComponent={<EmptyComponent text={t( 37 )} onPressRefresh={onRefresh} />}
 
     />
   );

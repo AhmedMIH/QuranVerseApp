@@ -33,4 +33,8 @@ export default {
   33: 'OK',
   34: 'No Verses Available',
   35: "Something went wrong please try again",
+  36: "Refresh",
+  37: "No Tags Available",
+  38: "No Verses Available for this tag",
+  39: "No Favorites",
 };

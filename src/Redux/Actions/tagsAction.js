@@ -1,3 +1,4 @@
+import { errorHandling } from '.';
 import apiClient from '../../Api/Apiclient';
 import { GET_TAGS_FAILED, GET_TAGS_START, GET_TAGS_SUCCESS, GET_TAGS_VERSES_FAILED, GET_TAGS_VERSES_SUCCESS, GET_TAGS_VERSES_START } from './Types';
 
@@ -18,6 +19,7 @@ export function getTags ( page ) {
                         payload: response.data,
                     } );
                 } else {
+                    dispatch( errorHandling( "35" ) )
                     dispatch( {
                         type: GET_TAGS_FAILED,
                         payload: response.data,
@@ -25,6 +27,7 @@ export function getTags ( page ) {
                 }
             } )
             .catch( err => {
+                dispatch( errorHandling( "35" ) )
                 dispatch( {
                     type: GET_TAGS_FAILED,
                     payload: err,
@@ -38,8 +41,6 @@ export function getTagVerses ( tagId ) {
         dispatch( {
             type: GET_TAGS_VERSES_START,
         } );
-        console.log( "getTagVerses 2" )
-
         apiClient
             .get( 'getVerses', {
                 page: 1,
@@ -52,6 +53,7 @@ export function getTagVerses ( tagId ) {
                         payload: response.data,
                     } );
                 } else {
+                    dispatch( errorHandling( "35" ) )
                     dispatch( {
                         type: GET_TAGS_VERSES_FAILED,
                         payload: response.data,
@@ -59,6 +61,7 @@ export function getTagVerses ( tagId ) {
                 }
             } )
             .catch( err => {
+                dispatch( errorHandling( "35" ) )
                 dispatch( {
                     type: GET_TAGS_VERSES_FAILED,
                     payload: err,

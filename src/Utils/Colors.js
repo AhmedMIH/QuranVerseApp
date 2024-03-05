@@ -38,7 +38,7 @@ const dark = {
   borderColor: '#7A8992',
   activeText: '#DED8D5',
   text: '#B7B8B9',
-  fillProgressBar: '#A2A2A2',
+  fillProgressBar: '#A2A2F2',
   infillProgressBar: '#0E201E',
   seashell: '#161616',
   lemon: '#3A3A3A',

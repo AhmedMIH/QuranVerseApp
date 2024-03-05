@@ -8,6 +8,7 @@ import { getThemeColor } from '../../../Utils/Helper';
 import {changeMode} from '../../../Redux/Actions';
 
 const index = ({changeMode, darkMode}) => {
+  const [ value, setValue ] = React.useState( false );
   const {t} = useTranslation();
   const onToggleSwitch = () => {
     changeMode(darkMode);
