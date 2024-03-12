@@ -3,7 +3,7 @@ import {trim, isString} from 'lodash';
 
 const apiClient = apisauce.create({
   // base URL is read from the "constructor"
-  baseURL: 'http://127.0.0.1:3000/',
+  baseURL: 'https://daily-verse-k4phosr7iq-ue.a.run.app/',
   // here are some default headers
   headers: {
     'Content-Type': 'application/json',
