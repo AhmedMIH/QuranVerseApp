@@ -19,12 +19,10 @@ const FavsList = ( { verses, type } ) => {
 
   const { t } = useTranslation()
 
-  const [ itemToShare, setItemToShare ] = useState( favs[ 0 ] )
+  const [ itemToShare, setItemToShare ] = useState( favs[ 0 ] || null )
   const [ loading, setLoading ] = useState( false );
 
   const screenShotRef = useRef();
-
-
   const handleOnPressShare = async ( item ) => {
     setLoading( true )
     setItemToShare( item )
@@ -47,16 +45,17 @@ const FavsList = ( { verses, type } ) => {
       <FlatList
         style={{ zIndex: 1, backgroundColor: getThemeColor( darkMode ).white, }}
         data={type === 1 ? favs : verses}
-        renderItem={( { item } ) => <FavItem item={item} type={type} onPressShare={( item ) => handleOnPressShare( item )} />}
-        keyExtractor={item => item.idx}
+        renderItem={( { item, index } ) => <FavItem key={index} item={item} type={type} onPressShare={( item ) => handleOnPressShare( item )} />}
+        keyExtractor={item => item.id}
         ListEmptyComponent={<EmptyComponent text={t( '39' )} onPressRefresh={type === 1 ? null : () => { }} />}
       />
-      <View style={{ height: "100%", position: 'absolute', zIndex: -1 }} >
-        <ViewShot style={{ flex: 1 }} ref={screenShotRef}>
-          <VerseComponent item={itemToShare} />
-        </ViewShot>
-      </View>
-
+      {itemToShare &&
+        <View style={{ height: "100%", position: 'absolute', zIndex: -1 }} >
+          <ViewShot style={{ flex: 1 }} ref={screenShotRef}>
+            <VerseComponent item={itemToShare} />
+          </ViewShot>
+        </View>
+      }
     </>
   );
 };

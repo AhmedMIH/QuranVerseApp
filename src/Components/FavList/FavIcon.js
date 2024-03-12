@@ -1,61 +1,56 @@
-import {TouchableOpacity} from 'react-native';
-import React, {useEffect, useState} from 'react';
-import {connect, useSelector} from 'react-redux';
+import { TouchableOpacity } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { connect, useSelector } from 'react-redux';
 import LottieView from 'lottie-react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
-import {addVerseToFav, removeVerseFromFav} from '../../Redux/Actions';
+import { addVerseToFav, removeVerseFromFav } from '../../Redux/Actions';
 import styles from './styles';
 
-function FavIcon({item, addVerseToFav, removeVerseFromFav, style}) {
-  const {favs, loading} = useSelector(state => state.fav);
+function FavIcon ( { item, addVerseToFav, removeVerseFromFav, style, loading } ) {
+  const { favs } = useSelector( state => state.fav );
   const { darkMode } = useSelector( state => state.app )
-
-
-  const [play, setPlay] = useState(false);
   const checkIfFav = () => {
-    for (let i = 0; i < favs.length; i++) {
-      if (favs[i].id === item.id) {
+    for ( let i = 0;i < favs.length;i++ ) {
+      if ( favs[ i ].id === item.id ) {
         return true;
       }
     }
     return false;
   };
 
-  useEffect(() => {
+  useEffect( () => {
     checkIfFav();
-  }, [favs]);
 
-  const [progress, setProgress] = useState(checkIfFav() ? 1 : 0);
+  }, [ favs, ] );
+
 
   const handleOnPressFav = () => {
-    if (checkIfFav()) {
-      setProgress(0);
-      removeVerseFromFav(item);
-      setPlay(false);
+    if ( checkIfFav() ) {
+      removeVerseFromFav( item );
     } else {
-      setPlay(true);
-      setProgress(1);
-      addVerseToFav(item);
+      addVerseToFav( item );
     }
   };
   return (
     <TouchableOpacity style={styles( darkMode ).icon} onPress={handleOnPressFav}>
       <Spinner visible={loading} />
+
       <LottieView
-        source={require('../../animation/addToFav.json')}
+        source={require( '../../animation/addToFav.json' )}
         style={[ styles( darkMode ).animation, style ]}
-        autoPlay={play}
         loop={false}
-        progress={progress}
+        progress={checkIfFav() ? 1 : 0}
       />
     </TouchableOpacity>
   );
 }
 
-const mapStateToProps = ({}) => ({});
+const mapStateToProps = ( { fav } ) => ( {
+  loading: fav.loading
+} );
 const mapDispatchToProps = {
   addVerseToFav,
   removeVerseFromFav,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FavIcon);
+export default connect( mapStateToProps, mapDispatchToProps )( FavIcon );

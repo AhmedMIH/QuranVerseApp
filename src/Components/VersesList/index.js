@@ -32,7 +32,7 @@ const index = ( { verses, getVerses, next, page, loading, refresh } ) => {
         data={verses}
         keyExtractor={item => item.id}
         horizontal
-        renderItem={( { item, index } ) => <VerseComponent refresh={refresh} item={item} />}
+        renderItem={( { item, index } ) => <VerseComponent key={item.id} refresh={refresh} item={item} />}
         onEndReached={() => {
           getNextPage()
         }}
