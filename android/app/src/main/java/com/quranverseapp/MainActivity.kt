@@ -1,4 +1,4 @@
-package com.quranverseapp
+package com.dailyverse.dailyverse
 
 import android.os.Bundle
 import com.facebook.react.ReactActivity

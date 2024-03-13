@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "852003163260",
-    "project_id": "verseapp-ad2b4",
-    "storage_bucket": "verseapp-ad2b4.appspot.com"
+    "project_number": "825516366920",
+    "project_id": "dailyverse-e79b4",
+    "storage_bucket": "dailyverse-e79b4.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:852003163260:android:7db5116df7787b602f0df9",
+        "mobilesdk_app_id": "1:825516366920:android:a367eb06f6dc9a87ed4c7d",
         "android_client_info": {
-          "package_name": "com.quranverseapp"
+          "package_name": "com.dailyverse.dailyverse"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCDVPdfCofYrAGBgLwf3Ax0r3gLjWLSrn4"
+          "current_key": "AIzaSyDFl1OsClLfLfLe9fo5gMOxy6zpWLAR4jI"
         }
       ],
       "services": {

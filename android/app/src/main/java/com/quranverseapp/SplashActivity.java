@@ -1,4 +1,4 @@
-package com.quranverseapp;
+package com.dailyverse.dailyverse;
 
 import static androidx.core.content.ContextCompat.startActivity;
 
