@@ -49,6 +49,8 @@ export function changeNotificationState ( state ) {
                 authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
                 authStatus === messaging.AuthorizationStatus.PROVISIONAL;
               if ( enabled ) {
+                token = ( await messaging().getToken() ).toString();
+                console.log( token )
                 dispatch( {
                   type: CHANGE_NOTIFICATION_STATE_SUCCESS,
                   payload: status === 'granted',
