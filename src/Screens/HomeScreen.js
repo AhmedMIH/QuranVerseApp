@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import VersesList from '../Components/VersesList';
 import { useFocusEffect } from '@react-navigation/native';
+import Container from '../Components/Container';
+
 const HomeScreen = () => {
   const [ refresh, setRefresh ] = useState( false );
 
@@ -13,7 +15,9 @@ const HomeScreen = () => {
       };
     }, [] )
   );
-  return <VersesList refresh={refresh} />;
+  return <Container >
+    <VersesList refresh={refresh} />;
+  </Container>
 };
 
 
