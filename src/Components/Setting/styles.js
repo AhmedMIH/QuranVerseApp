@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 import {
   getThemeColor,
   getFontSize,
@@ -21,7 +21,6 @@ export default styles = ( darkMode ) => StyleSheet.create( {
     justifyContent: 'space-between',
     alignItems: 'center',
     height: responsiveHeight(57),
-    justifyContent: 'center',
     borderBottomWidth: 0.75,
     paddingHorizontal: responsiveWidth(16),
     borderBottomColor: getThemeColor( darkMode ).borderColor,
@@ -32,6 +31,7 @@ export default styles = ( darkMode ) => StyleSheet.create( {
     fontSize: getFontSize(16),
     lineHeight: 24,
     textAlignVertical: 'center',
+    textAlign:Platform.OS =='ios' ? 'left':null,
     letterSpacing: 0.5,
     color: getThemeColor( darkMode ).text,
   },

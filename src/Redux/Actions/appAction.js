@@ -135,7 +135,9 @@ export function changeLanguage ( isRTL ) {
     I18nManager.allowRTL( !isRTL );
     I18nManager.forceRTL( !isRTL );
     dispatch( { type: CHANGE_LANGUAGE_SUCCESS, payload: !isRTL } );
-    RNRestart.restart();
+    setTimeout(()=>
+     RNRestart.restart()
+    ,10)
   };
 }
 
