@@ -39,7 +39,7 @@ export function changeNotificationState ( state ) {
     dispatch( {
       type: CHANGE_NOTIFICATION_STATE_START,
     } );
-    if ( state ) {
+    if ( state === true ) {
       await requestNotifications( [ 'alert', 'sound' ] )
         .then( async ( { status } ) => {
           if ( status !== null ) {
@@ -73,11 +73,45 @@ export function changeNotificationState ( state ) {
             payload: false,
           } );
         } );
-    } else {
+    } else if ( state === false ) {
       dispatch( {
         type: CHANGE_NOTIFICATION_STATE_SUCCESS,
-        payload: state
-      } )
+        payload: false,
+      } );
+    } else {
+      await requestNotifications( [ 'alert', 'sound' ] )
+        .then( async ( { status } ) => {
+          if ( status !== null ) {
+            if ( status ) {
+              const authStatus = await messaging().requestPermission();
+              const enabled =
+                authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+                authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+              if ( enabled ) {
+                dispatch( {
+                  type: CHANGE_NOTIFICATION_STATE_SUCCESS,
+                  payload: status === 'granted',
+                } );
+              } else {
+                dispatch( {
+                  type: CHANGE_NOTIFICATION_STATE_SUCCESS,
+                  payload: false
+                } );
+              }
+            }
+          } else {
+            dispatch( {
+              type: CHANGE_NOTIFICATION_STATE_SUCCESS,
+              payload: status === 'granted',
+            } );
+          }
+        } )
+        .catch( err => {
+          dispatch( {
+            type: CHANGE_NOTIFICATION_STATE_FAILED,
+            payload: false,
+          } );
+        } );
     }
   };
 }
