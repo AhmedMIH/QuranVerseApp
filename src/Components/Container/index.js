@@ -8,7 +8,8 @@ const index = ( { children, style } ) => {
   return (
     <SafeAreaView style={[ style, styles( darkMode ).container ]}>
       <StatusBar translucent />
-      {children}</SafeAreaView>
+      {children}
+      </SafeAreaView>
   );
 };
 

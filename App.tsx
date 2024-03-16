@@ -13,14 +13,13 @@ import SplashScreen from 'react-native-splash-screen';
 import {PaperProvider} from 'react-native-paper';
 import {Provider} from 'react-redux';
 import Toast from 'react-native-toast-message';
-
+import messaging from '@react-native-firebase/messaging';
 
 import AppNavigation from './src/Routes/AppNavigation';
 import {store, persistor} from './src/Redux/Store';
 import './src/Localization/i18n';
 import toastConfig from './src/Utils/toastConfig';
-import PushController from './src/Utils/PushController/PushController'
-
+import PushController from './src/Utils/PushController/PushController';
 
 function App(): React.JSX.Element {
   const onBeforeLift = () => {
@@ -34,7 +33,7 @@ function App(): React.JSX.Element {
   return (
     <Provider store={store}>
       <PaperProvider theme={DefaultReactNativePaperTheme}>
-        <PersistGate 
+        <PersistGate
           loading={<></>}
           onBeforeLift={onBeforeLift}
           persistor={persistor}>
@@ -45,7 +44,7 @@ function App(): React.JSX.Element {
           />
           <AppNavigation />
         </PersistGate>
-          <Toast config={toastConfig}/>
+        <Toast config={toastConfig} />
       </PaperProvider>
       <PushController />
     </Provider>

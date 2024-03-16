@@ -134,9 +134,9 @@ PODS:
   - hermes-engine/Pre-built (0.73.4)
   - libevent (2.1.12)
   - lottie-ios (4.4.1)
-  - lottie-react-native (6.7.0):
+  - lottie-react-native (6.6.0):
     - glog
-    - lottie-ios (~> 4.4.1)
+    - lottie-ios (~> 4.4.0)
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
   - nanopb (2.30909.1):
@@ -1191,7 +1191,7 @@ PODS:
     - React-jsi (= 0.73.4)
     - React-logger (= 0.73.4)
     - React-perflogger (= 0.73.4)
-  - RNCAsyncStorage (1.22.3):
+  - RNCAsyncStorage (1.21.0):
     - React-Core
   - RNFBApp (18.9.0):
     - Firebase/CoreOnly (= 10.20.0)
@@ -1210,7 +1210,7 @@ PODS:
     - RNNotifee/NotifeeCore (= 7.8.2)
   - RNNotifee/NotifeeCore (7.8.2):
     - React-Core
-  - RNPermissions (4.1.4):
+  - RNPermissions (4.1.1):
     - React-Core
   - RNScreens (3.29.0):
     - glog
@@ -1461,7 +1461,7 @@ SPEC CHECKSUMS:
   hermes-engine: b2669ce35fc4ac14f523b307aff8896799829fe2
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   lottie-ios: e047b1d2e6239b787cc5e9755b988869cf190494
-  lottie-react-native: 36b4c75807716e499317b5c62f53e4d85c5e5c8a
+  lottie-react-native: 34cfb1db79d0feb7bf7b200d4a4e2f164b0c5f58
   nanopb: d4d75c12cd1316f4a64e3c6963f879ecd4b5e0d5
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   RCT-Folly: 7169b2b1c44399c76a47b5deaaba715eeeb476c0
@@ -1509,12 +1509,12 @@ SPEC CHECKSUMS:
   React-runtimescheduler: ed48e5faac6751e66ee1261c4bd01643b436f112
   React-utils: 6e5ad394416482ae21831050928ae27348f83487
   ReactCommon: 840a955d37b7f3358554d819446bffcf624b2522
-  RNCAsyncStorage: 10591b9e0a91eaffee14e69b3721009759235125
+  RNCAsyncStorage: 618d03a5f52fbccb3d7010076bc54712844c18ef
   RNFBApp: 9b25191f7a5e72c185b7e43fffb0d906869c4659
   RNFBMessaging: 99621af036e0aa85506390f77d79c9e6353aacca
   RNGestureHandler: deda62b8339496ba721a45e0f3e2d7a319932cee
   RNNotifee: 8e2d3df3f0e9ce8f5d1fe4c967431138190b6175
-  RNPermissions: fd864c76de2c77482fd73cae4c93a740ac02e2d6
+  RNPermissions: 4d8e63ac63d238de37c6c550afbd68bbc40bf5d9
   RNScreens: b582cb834dc4133307562e930e8fa914b8c04ef2
   RNShare: 859ff710211285676b0bcedd156c12437ea1d564
   RNVectorIcons: 210f910e834e3485af40693ad4615c1ec22fc02b

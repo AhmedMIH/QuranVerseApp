@@ -7,9 +7,7 @@ const VerseScreen = ({
     params: {item},
   },
 }) => {
-  return <Container>
-    <VerseComponent item={item} />;
-  </Container>
+  return <VerseComponent item={item} />;
 };
 
 export default VerseScreen;

@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet } from 'react-native';
+import { FlatList, Platform, StyleSheet } from 'react-native';
 import React from 'react';
 import TypeItem from './TypeItem';
 import EmptyComponent from '../../EmptyComponent';
@@ -11,6 +11,7 @@ const index = ( { tags, onRefresh } ) => {
     <FlatList
       showsVerticalScrollIndicator={false}
       style={{ flex: 1 }}
+      contentContainerStyle={{paddingHorizontal:Platform.OS === 'ios' ?16:null}}
       numColumns={2} // set number of columns
       columnWrapperStyle={style.row} // space them out evenly
       data={tags}

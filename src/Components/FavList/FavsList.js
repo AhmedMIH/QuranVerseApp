@@ -1,11 +1,11 @@
 import ViewShot, { captureRef } from 'react-native-view-shot';
 import Spinner from 'react-native-loading-spinner-overlay';
-import { FlatList, View } from 'react-native';
+import { FlatList, Platform, View } from 'react-native';
 import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import Share from 'react-native-share';
-import { getThemeColor } from '../../Utils/Helper';
+import { getThemeColor, responsiveHeight } from '../../Utils/Helper';
 import EmptyComponent from '../EmptyComponent';
 import VerseComponent from '../VerseComponent';
 import FavItem from './FavItem';
@@ -52,7 +52,7 @@ const FavsList = ( { verses, type } ) => {
       {itemToShare &&
         <View style={{ height: "100%", position: 'absolute', zIndex: -1 }} >
           <ViewShot style={{ flex: 1 }} ref={screenShotRef}>
-            <VerseComponent item={itemToShare} />
+            <VerseComponent item={itemToShare} topHeight={Platform.OS == 'ios' ? responsiveHeight(60):0} />
           </ViewShot>
         </View>
       }

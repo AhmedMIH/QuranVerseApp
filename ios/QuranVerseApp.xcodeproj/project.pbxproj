@@ -43,6 +43,26 @@
 		5B7EB9410499542E8C5724F5 /* Pods-QuranVerseApp-QuranVerseAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuranVerseApp-QuranVerseAppTests.debug.xcconfig"; path = "Target Support Files/Pods-QuranVerseApp-QuranVerseAppTests/Pods-QuranVerseApp-QuranVerseAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-QuranVerseApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QuranVerseApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		718E472F2BA5EA510085892B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "QuranVerseApp/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		71FA276A2BA6282300C29D00 /* FontAwesome6_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome6_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome6_Solid.ttf"; sourceTree = "<group>"; };
+		71FA276B2BA6282300C29D00 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
+		71FA276C2BA6282300C29D00 /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		71FA276D2BA6282300C29D00 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		71FA276E2BA6282300C29D00 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		71FA276F2BA6282300C29D00 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		71FA27702BA6282300C29D00 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		71FA27712BA6282300C29D00 /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		71FA27722BA6282300C29D00 /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		71FA27732BA6282300C29D00 /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		71FA27742BA6282300C29D00 /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		71FA27752BA6282300C29D00 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		71FA27762BA6282300C29D00 /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
+		71FA27772BA6282300C29D00 /* FontAwesome6_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome6_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome6_Regular.ttf"; sourceTree = "<group>"; };
+		71FA27782BA6282300C29D00 /* FontAwesome6_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome6_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome6_Brands.ttf"; sourceTree = "<group>"; };
+		71FA27792BA6282300C29D00 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		71FA277A2BA6282300C29D00 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		71FA277B2BA6282300C29D00 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		71FA277C2BA6282300C29D00 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		71FA277D2BA6314900C29D00 /* QuranVerseApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = QuranVerseApp.entitlements; path = QuranVerseApp/QuranVerseApp.entitlements; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = QuranVerseApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-QuranVerseApp-QuranVerseAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuranVerseApp-QuranVerseAppTests.release.xcconfig"; path = "Target Support Files/Pods-QuranVerseApp-QuranVerseAppTests/Pods-QuranVerseApp-QuranVerseAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -88,6 +108,8 @@
 		13B07FAE1A68108700A75B9A /* QuranVerseApp */ = {
 			isa = PBXGroup;
 			children = (
+				71FA277D2BA6314900C29D00 /* QuranVerseApp.entitlements */,
+				71FA27692BA6272700C29D00 /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -106,6 +128,32 @@
 				19F6CBCC0A4E27FBF8BF4A61 /* libPods-QuranVerseApp-QuranVerseAppTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		71FA27692BA6272700C29D00 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				71FA27722BA6282300C29D00 /* AntDesign.ttf */,
+				71FA27742BA6282300C29D00 /* Entypo.ttf */,
+				71FA27712BA6282300C29D00 /* EvilIcons.ttf */,
+				71FA277A2BA6282300C29D00 /* Feather.ttf */,
+				71FA27702BA6282300C29D00 /* FontAwesome.ttf */,
+				71FA27752BA6282300C29D00 /* FontAwesome5_Brands.ttf */,
+				71FA276B2BA6282300C29D00 /* FontAwesome5_Regular.ttf */,
+				71FA276F2BA6282300C29D00 /* FontAwesome5_Solid.ttf */,
+				71FA27782BA6282300C29D00 /* FontAwesome6_Brands.ttf */,
+				71FA27772BA6282300C29D00 /* FontAwesome6_Regular.ttf */,
+				71FA276A2BA6282300C29D00 /* FontAwesome6_Solid.ttf */,
+				71FA27762BA6282300C29D00 /* Fontisto.ttf */,
+				71FA276C2BA6282300C29D00 /* Foundation.ttf */,
+				71FA277B2BA6282300C29D00 /* Ionicons.ttf */,
+				71FA276D2BA6282300C29D00 /* MaterialCommunityIcons.ttf */,
+				71FA27792BA6282300C29D00 /* MaterialIcons.ttf */,
+				71FA276E2BA6282300C29D00 /* Octicons.ttf */,
+				71FA277C2BA6282300C29D00 /* SimpleLineIcons.ttf */,
+				71FA27732BA6282300C29D00 /* Zocial.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -483,6 +531,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = QuranVerseApp/QuranVerseApp.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = QuranVerseApp/Info.plist;
@@ -510,6 +559,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = QuranVerseApp/QuranVerseApp.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = QuranVerseApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

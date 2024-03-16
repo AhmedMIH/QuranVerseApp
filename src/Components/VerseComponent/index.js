@@ -17,7 +17,7 @@ import VerticalSpace from '../VerticalSpace';
 import FavIcon from '../FavList/FavIcon';
 import { errorHandling } from '../../Redux/Actions';
 
-const index = ( { item } ) => {
+const index = ( { item ,topHeight=0} ) => {
   const { loading } = useSelector( state => state.fav );
   const { darkMode } = useSelector( state => state.app )
   const { backgroundType, backgroundImage } = useSelector( state => state.app );
@@ -40,7 +40,7 @@ const index = ( { item } ) => {
   };
 
   return (
-    <Animated.View style={{ flex: 1 }}>
+    <Animated.View style={{ flex: 1,top:topHeight}}>
       <Spinner visible={loading} />
       <ViewShot style={{ flex: 1 }} ref={ref}>
         <ImageBackground
