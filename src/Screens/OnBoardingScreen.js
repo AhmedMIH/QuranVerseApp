@@ -17,6 +17,7 @@ import {
   responsiveWidth,
 } from '../Utils/Helper';
 import TimePicker from '../Components/TimePicker';
+import Container from '../Components/Container';
 
 const OnBoardingScreen = ( {
   changeOnBoardingState,
@@ -47,7 +48,7 @@ const OnBoardingScreen = ( {
   }
 
   return (
-    <View
+    <Container
       style={{
         flex: 1,
         paddingVertical: responsiveHeight( 44 ),
@@ -165,7 +166,7 @@ const OnBoardingScreen = ( {
         textColor={getThemeColor( darkMode ).white}>
         {t( '4' )}
       </Button>
-    </View>
+    </Container>
   );
 };
 
