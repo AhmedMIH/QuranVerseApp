@@ -4,23 +4,28 @@ import {useTranslation} from 'react-i18next';
 import {Switch} from 'react-native-paper';
 import {connect} from 'react-redux';
 import styles from '../styles';
-import { getThemeColor } from '../../../Utils/Helper';
+import {getThemeColor} from '../../../Utils/Helper';
 import {changeMode} from '../../../Redux/Actions';
 
 const index = ({changeMode, darkMode}) => {
-  const [ value, setValue ] = React.useState( false );
   const {t} = useTranslation();
   const onToggleSwitch = () => {
     changeMode(darkMode);
   };
   return (
-    <View style={styles( darkMode ).innerContainer}>
-      <Text style={[ styles( darkMode ).mainText, { color: getThemeColor( darkMode ).text } ]}>{t( '9' )}</Text>
+    <View style={styles(darkMode).innerContainer}>
+      <Text
+        style={[
+          styles(darkMode).mainText,
+          {color: getThemeColor(darkMode).text},
+        ]}>
+        {t('9')}
+      </Text>
       <Switch
         style={{marginRight: -6}}
         value={darkMode}
         onValueChange={onToggleSwitch}
-        color={getThemeColor( darkMode ).fillProgressBar}
+        color={getThemeColor(darkMode).fillProgressBar}
       />
     </View>
   );

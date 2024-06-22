@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import VersesAboutListPresentational from '../Components/VersesAboutListPresentational';
 import { getTagVerses } from '../Redux/Actions';
 import Container from '../Components/Container';
-import Header from '../Components/Header';
 const VerseTypeScreen = ( { route, loading, getTagVerses, verses } ) => {
   const item = route.params.type;
 
@@ -15,7 +14,6 @@ const VerseTypeScreen = ( { route, loading, getTagVerses, verses } ) => {
   return (
     <Container>
       <Spinner visible={loading} />
-      <Header title={item.name} haveBack={true} />
       <VersesAboutListPresentational verses={verses} type={2} onRefresh={() => getTagVerses( item.id )} />
     </Container>
   );

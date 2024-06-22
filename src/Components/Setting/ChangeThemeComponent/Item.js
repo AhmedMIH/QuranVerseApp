@@ -14,13 +14,14 @@ const Item = ({item, type, onToggle, style}) => {
   };
   return (
     <TouchableOpacity
+      key={item}
       onPress={onPressItem}
       style={[
-        styles( darkMode ).item,
+        styles(darkMode).item,
         style,
         {backgroundColor: type === 1 ? item : 'black'},
       ]}>
-      {type === 2 && <Image source={item} style={styles( darkMode ).image} />}
+      {type === 2 && <Image source={item} style={styles(darkMode).image} />}
     </TouchableOpacity>
   );
 };

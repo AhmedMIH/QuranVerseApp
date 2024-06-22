@@ -23,7 +23,9 @@ const OptionMenu = ({
       visible={visible}
       onDismiss={closeMenu}
       contentStyle={{
-        backgroundColor: getThemeColor( darkMode ).lightPrimary,
+        backgroundColor: darkMode
+          ? '#372D29'
+          : getThemeColor(darkMode).lightPrimary,
         width: 120,
       }}
       anchor={
@@ -33,7 +35,7 @@ const OptionMenu = ({
           <MaterialIcons
             name="more-vert"
             size={24}
-            color={getThemeColor( darkMode ).darkPrimary}
+            color={darkMode ? '#FFF8F6' : getThemeColor(darkMode).darkPrimary}
           />
         </TouchableOpacity>
       }>
@@ -43,12 +45,12 @@ const OptionMenu = ({
           onPressFav();
           forceUpdate();
         }}
-        style={styles( darkMode ).optionContainer}>
-        <Text style={styles( darkMode ).optionText}>{t( '25' )}</Text>
+        style={styles(darkMode).optionContainer}>
+        <Text style={styles(darkMode).optionText}>{t('25')}</Text>
         <FontAwesome
           name="trash-o"
           size={24}
-          color={getThemeColor( darkMode ).darkPrimary}
+          color={darkMode ? '#FFF8F6' : getThemeColor(darkMode).darkPrimary}
         />
       </TouchableOpacity>
       <TouchableOpacity
@@ -57,11 +59,11 @@ const OptionMenu = ({
           onPressShare();
           forceUpdate();
         }}
-        style={styles( darkMode ).optionContainer}>
-        <Text style={styles( darkMode ).optionText}>{t( '12' )}</Text>
+        style={styles(darkMode).optionContainer}>
+        <Text style={styles(darkMode).optionText}>{t('12')}</Text>
         <MaterialIcons
           name={'ios-share'}
-          color={getThemeColor( darkMode ).darkPrimary}
+          color={darkMode ? '#FFF8F6' : getThemeColor(darkMode).darkPrimary}
           size={24}
         />
       </TouchableOpacity>

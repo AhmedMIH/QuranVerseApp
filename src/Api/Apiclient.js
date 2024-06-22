@@ -1,5 +1,6 @@
 import apisauce from 'apisauce';
 import {trim, isString} from 'lodash';
+import {safeJsonParse} from '../Utils/Helper';
 
 const apiClient = apisauce.create({
   // base URL is read from the "constructor"
@@ -16,7 +17,7 @@ const apiClient = apisauce.create({
 
 apiClient.addResponseTransform(response => {
   if (response.data && isString(response.data)) {
-    response.data = JSON.parse(trim(response.data));
+    response.data = safeJsonParse(trim(response.data));
   }
 });
 

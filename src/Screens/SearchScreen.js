@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Spinner from 'react-native-loading-spinner-overlay';
 import SearchBar from '../Components/Search/SearchBar';
 import TypesList from '../Components/Search/TypesList';
-import { responsiveWidth } from '../Utils/Helper';
+import { responsiveHeight, responsiveWidth } from '../Utils/Helper';
 import Container from '../Components/Container';
 import { getTags } from '../Redux/Actions';
 
@@ -19,7 +19,7 @@ const SearchScreen = ( { loading, tags, getTags, page } ) => {
   }, [] )
 
   return (
-    <Container style={{ paddingHorizontal: responsiveWidth( 30 ) }}>
+    <Container style={{ paddingHorizontal: responsiveWidth( 30 ), paddingVertical: responsiveHeight( 16 ) }}>
       <Spinner visible={loading} />
       <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <TypesList tags={filteredTags} onRefresh={() => getTags( page )} />

@@ -1,17 +1,73 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next';
-import FavsList from '../FavList/FavsList';
+import {Animated, Dimensions, StyleSheet, View} from 'react-native';
+import React, {useRef, useState, useCallback, useMemo} from 'react';
+import {FlashList} from '@shopify/flash-list';
+import {useTranslation} from 'react-i18next';
 import EmptyComponent from '../EmptyComponent';
+import VerseComponent from '../VerseComponent';
 
-const index = ( { verses, type, onRefresh } ) => {
-  const { darkMode } = useSelector( state => state.app )
-  const { t } = useTranslation()
+const VerseList = ({verses, onRefresh}) => {
+  const {t} = useTranslation();
+  const width = Dimensions.get('window').width;
+  const [scrollViewWidth, setScrollViewWidth] = useState(0);
+  const boxWidth = scrollViewWidth;
+  const boxDistance = scrollViewWidth - boxWidth;
+  const halfBoxDistance = boxDistance / 2;
+  const pan = useRef(new Animated.ValueXY()).current;
 
-  if ( verses?.length > 0 ) {
-    return <FavsList verses={verses} type={type} />;
+  const handleLayout = useCallback(e => {
+    setScrollViewWidth(e.nativeEvent.layout.width);
+  }, []);
+
+  const renderItem = useCallback(
+    ({item}) => <VerseComponent key={item.id} item={item} haveExit={true} />,
+    [],
+  );
+
+  const listEmptyComponent = useMemo(
+    () => <EmptyComponent text={t(34)} onPressRefresh={onRefresh} />,
+    [t, onRefresh],
+  );
+
+  if (verses?.length > 0) {
+    return (
+      <View style={styles.container}>
+        <FlashList
+          removeClippedSubviews
+          data={verses}
+          keyExtractor={item => item.id}
+          horizontal
+          renderItem={renderItem}
+          estimatedItemSize={width}
+          automaticallyAdjustContentInsets={false}
+          showsHorizontalScrollIndicator={false}
+          snapToInterval={boxWidth}
+          disableIntervalMomentum
+          contentInset={{
+            left: halfBoxDistance,
+            right: halfBoxDistance,
+          }}
+          contentOffset={{x: halfBoxDistance * -1, y: 0}}
+          onLayout={handleLayout}
+          onScroll={Animated.event(
+            [{nativeEvent: {contentOffset: {x: pan.x}}}],
+            {useNativeDriver: false},
+          )}
+          ListEmptyComponent={listEmptyComponent}
+          initialNumToRender={10}
+        />
+      </View>
+    );
   }
-  return <EmptyComponent text={t( '38' )} onPressRefresh={onRefresh} />
+
+  return <EmptyComponent text={t('38')} onPressRefresh={onRefresh} />;
 };
 
-export default index;
+const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+});
+
+export default VerseList;

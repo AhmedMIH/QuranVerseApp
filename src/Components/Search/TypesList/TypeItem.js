@@ -6,18 +6,18 @@ import styles from './styles';
 import { useSelector } from 'react-redux';
 
 const TypeItem = ({item, index}) => {
-  const bg = getRandomColor();
   const navigation = useNavigation();
-  const { darkMode } = useSelector( state => state.app )
+  const {darkMode} = useSelector(state => state.app);
+  const bg = getRandomColor(darkMode);
 
   return (
     <TouchableOpacity
       key={index}
-      style={styles( bg, darkMode ).container}
+      style={styles(bg, darkMode).container}
       onPress={() => {
         navigation.navigate('VerseType', {type: item});
       }}>
-      <Text style={styles( null, darkMode ).title}>{item.name}</Text>
+      <Text style={styles(null, darkMode).title}>{item.name}</Text>
     </TouchableOpacity>
   );
 };

@@ -55,20 +55,16 @@ const getColorTheme = () => {
   return darkMode ? Colors.dark : Colors.light;
 };
 
-
-export const getThemeColor = ( darkMode ) => {
+export const getThemeColor = darkMode => {
   const theme = darkMode ? 'dark' : 'light';
-  const themeColor = themes[ theme ];
+  const themeColor = themes[theme];
   const fallbackColor = themes.light;
   return themeColor || fallbackColor;
 };
-const getRandomColor = () => {
-  const colors = [
-    getThemeColor().seashell,
-    getThemeColor().pink,
-    getThemeColor().pastel,
-    getThemeColor().lemon,
-  ];
+const getRandomColor = (darkMode = false) => {
+  const lightColors = ['#CFDBC6', '#FCEAE4', '#F5EDC0', '#FFDADA'];
+  const darkColors = ['#7E6359', '#816C00', '#6B805C', '#8F4C36'];
+  const colors = darkMode ? darkColors : lightColors;
   let randomIndex;
   do {
     randomIndex = Math.floor(Math.random() * colors.length);
@@ -96,30 +92,30 @@ function formatTime(hours, minutes) {
   return {time: `${formattedHours}:${formattedMinutes} `, meridiem: meridiem};
 }
 
-function localToUTC ( hours, minutes ) {
+function localToUTC(hours, minutes) {
   // Convert hours and minutes to milliseconds
   const localTime = hours * 60 * 60 * 1000 + minutes * 60 * 1000;
   // Calculate UTC time by subtracting the offset
   const utcTime = localTime - getTimezoneOffset() * 60 * 60 * 1000;
   return {
-    hours: Math.floor( utcTime / ( 60 * 60 * 1000 ) ),
-    minutes: Math.floor( ( utcTime % ( 60 * 60 * 1000 ) ) / ( 60 * 1000 ) )
+    hours: Math.floor(utcTime / (60 * 60 * 1000)),
+    minutes: Math.floor((utcTime % (60 * 60 * 1000)) / (60 * 1000)),
   };
 }
 
 // Convert UTC time to local time
-function utcToLocal ( hours, minutes ) {
+function utcToLocal(hours, minutes) {
   // Convert hours and minutes to milliseconds
   const utcTime = hours * 60 * 60 * 1000 + minutes * 60 * 1000;
   // Calculate local time by adding the offset
   const localTime = utcTime + getTimezoneOffset() * 60 * 60 * 1000;
   return {
-    hours: Math.floor( localTime / ( 60 * 60 * 1000 ) ),
-    minutes: Math.floor( ( localTime % ( 60 * 60 * 1000 ) ) / ( 60 * 1000 ) )
+    hours: Math.floor(localTime / (60 * 60 * 1000)),
+    minutes: Math.floor((localTime % (60 * 60 * 1000)) / (60 * 1000)),
   };
 }
 
-function getTimezoneOffset () {
+function getTimezoneOffset() {
   const currentDate = new Date();
   // Get the timezone offset in minutes
   const offsetInMinutes = currentDate.getTimezoneOffset();
@@ -128,14 +124,20 @@ function getTimezoneOffset () {
   return offsetInHours;
 }
 
-
-
 function getAppUrl() {
   return 'https://play.google.com/store/apps/details?id=nic.goi.aarogyasetu&hl=en';
 }
 
 function getRateAppLink() {
   return 'https://play.google.com/store/apps/details?id=com.YoStarEN.Arknights';
+}
+
+function safeJsonParse(data) {
+  // Replace NaN with null or any other valid JSON value
+  const sanitizedData = data.replace(/NaN/g, 'null');
+
+  // Parse the sanitized data
+  return JSON.parse(sanitizedData);
 }
 
 export {
@@ -152,4 +154,5 @@ export {
   getRandomNumber,
   utcToLocal,
   localToUTC,
+  safeJsonParse,
 };

@@ -11,8 +11,9 @@ const ListImageOver = ({list, type}) => {
     <View style={{flexDirection: 'row', marginTop: 12}}>
       {list.map((item, index) => (
         <View
+          key={index}
           style={[
-            styles( darkMode ).overflowContainer,
+            styles(darkMode).overflowContainer,
             {
               backgroundColor: type === 1 ? item : 'black',
               marginLeft: index === 0 ? 0 : -30,

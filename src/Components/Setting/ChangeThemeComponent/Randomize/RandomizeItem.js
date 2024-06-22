@@ -15,7 +15,9 @@ const RandomizeItem = ({item, index, onToggle}) => {
 
 
   const onPressItem = () => {
-    dispatch(changeBackground(index + 1, item[getRandomNumber(0, 5)]));
+    dispatch(
+      changeBackground(index + 1, item[getRandomNumber(0, darkMode ? 3 : 5)]),
+    );
     onToggle();
   };
   return (

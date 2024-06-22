@@ -30,7 +30,7 @@ export default ( state = INIT_STATE, action ) => {
                 error: null,
                 tags: [ ...state.tags, ...action.payload.tags ],
                 next: action.payload.next,
-                page: state.page + 1,
+                page: action.payload.next ? state.page + 1 : state.page,
             };
         case GET_TAGS_FAILED:
             return {

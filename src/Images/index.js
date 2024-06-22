@@ -20,6 +20,15 @@ const images = {
   backgroundImage6: Image.resolveAssetSource(
     require('./background/backgroundImage6.jpeg'),
   ),
+  backgroundImage7: Image.resolveAssetSource(
+    require('./background/backgroundImage7.jpeg'),
+  ),
+  backgroundImage8: Image.resolveAssetSource(
+    require('./background/backgroundImage8.jpeg'),
+  ),
+  backgroundImage9: Image.resolveAssetSource(
+    require('./background/backgroundImage9.jpeg'),
+  ),
 };
 
 export default images;

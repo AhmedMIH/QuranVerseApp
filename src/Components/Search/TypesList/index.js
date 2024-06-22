@@ -11,7 +11,7 @@ const index = ( { tags, onRefresh } ) => {
     <FlatList
       showsVerticalScrollIndicator={false}
       style={{ flex: 1 }}
-      contentContainerStyle={{paddingHorizontal:Platform.OS === 'ios' ?16:null}}
+      contentContainerStyle={{ paddingHorizontal: Platform.OS === 'ios' ? 16 : null }}
       numColumns={2} // set number of columns
       columnWrapperStyle={style.row} // space them out evenly
       data={tags}
