@@ -21,7 +21,8 @@ const MainTabNavigation = () => {
       activeColor={'#EAB69F'}
       inactiveColor={getThemeColor(darkMode).darkPrimary}
       barStyle={{
-        backgroundColor: getThemeColor(darkMode).primary, // Set transparency here
+        position: 'absolute',
+        backgroundColor: 'rgba(255, 255, 255, 0.5)', // Set transparency here
       }}
       activeIndicatorStyle={{
         backgroundColor: 'rgba(255, 255, 255, 0)',

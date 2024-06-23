@@ -11,7 +11,6 @@ export default style = (bg, darkMode) =>
     container: {
       justifyContent: 'center',
       alignItems: 'center',
-      marginTop: responsiveHeight(24),
       backgroundColor: bg,
       height: responsiveHeight(88),
       width: responsiveWidth(154),

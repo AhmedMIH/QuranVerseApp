@@ -19,10 +19,15 @@ const SearchScreen = ( { loading, tags, getTags, page } ) => {
   }, [] )
 
   return (
-    <Container style={{ paddingHorizontal: responsiveWidth( 30 ), paddingVertical: responsiveHeight( 16 ) }}>
+    <Container
+      style={{
+        paddingHorizontal: responsiveWidth(30),
+        paddingVertical: responsiveHeight(16),
+        marginBottom: responsiveHeight(70),
+      }}>
       <Spinner visible={loading} />
       <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      <TypesList tags={filteredTags} onRefresh={() => getTags( page )} />
+      <TypesList tags={filteredTags} onRefresh={() => getTags(page)} />
     </Container>
   );
 };

@@ -12,10 +12,14 @@ const VerseTypeScreen = ( { route, loading, getTagVerses, verses } ) => {
   }, [] )
 
   return (
-    <Container>
+    <>
       <Spinner visible={loading} />
-      <VersesAboutListPresentational verses={verses} type={2} onRefresh={() => getTagVerses( item.id )} />
-    </Container>
+      <VersesAboutListPresentational
+        verses={verses}
+        type={2}
+        onRefresh={() => getTagVerses(item.id)}
+      />
+    </>
   );
 };
 const mapStateToProps = ( { tags } ) => {
