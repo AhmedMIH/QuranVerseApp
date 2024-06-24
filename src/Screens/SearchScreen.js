@@ -23,7 +23,7 @@ const SearchScreen = ( { loading, tags, getTags, page } ) => {
       style={{
         paddingHorizontal: responsiveWidth(30),
         paddingVertical: responsiveHeight(16),
-        marginBottom: responsiveHeight(70),
+        paddingBottom: responsiveHeight(90),
       }}>
       <Spinner visible={loading} />
       <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
