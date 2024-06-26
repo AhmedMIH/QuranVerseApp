@@ -3,7 +3,7 @@ import {Image} from 'react-native';
 const images = {
   onBoardingImage: Image.resolveAssetSource(require('./onBoardingImage.png')),
   backgroundImage: Image.resolveAssetSource(
-    require('./background/backgroundImage.png'),
+    require('./background/backgroundImage.jpeg'),
   ),
   backgroundImage2: Image.resolveAssetSource(
     require('./background/backgroundImage2.jpeg'),
