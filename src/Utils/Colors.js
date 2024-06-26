@@ -33,7 +33,7 @@ const light = {
 const dark = {
   ...commonColor,
   themeColor: '#000000',
-  white: '#000000',
+  white: '#1A110F',
   moreLight: '#302B28',
   lightPrimary: '#e6c6b8',
   primary: '#574E49',

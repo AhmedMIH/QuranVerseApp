@@ -5,13 +5,14 @@ import Header from '../Components/Header';
 import Container from '../Components/Container';
 import Spinner from 'react-native-loading-spinner-overlay';
 import { useSelector } from 'react-redux';
+import {responsiveHeight} from '../Utils/Helper';
 
 const FavoritesScreen = () => {
-  const { t } = useTranslation();
-  const { loading } = useSelector( state => state.fav );
+  const {t} = useTranslation();
+  const {loading} = useSelector(state => state.fav);
   return (
-    <Container>
-      <Header title={t( '15' )} />
+    <Container style={{paddingBottom: responsiveHeight(90)}}>
+      <Header title={t('15')} />
       <Spinner visible={loading} />
       <FavsList type={1} />
     </Container>
