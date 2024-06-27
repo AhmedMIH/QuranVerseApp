@@ -43,7 +43,7 @@ const FavsList = ( { verses, type } ) => {
     <>
       <Spinner visible={loading} />
       <FlatList
-        style={{ zIndex: 1, backgroundColor: getThemeColor( darkMode ).white, }}
+        style={{ zIndex: 1, backgroundColor: getThemeColor( darkMode ).white }}
         data={type === 1 ? favs : verses}
         renderItem={( { item, index } ) => <FavItem key={index} item={item} type={type} onPressShare={( item ) => handleOnPressShare( item )} />}
         keyExtractor={item => item.id}
@@ -52,7 +52,7 @@ const FavsList = ( { verses, type } ) => {
       {itemToShare &&
         <View style={{ height: "100%", position: 'absolute', zIndex: -1 }} >
           <ViewShot style={{ flex: 1 }} ref={screenShotRef}>
-            <VerseComponent item={itemToShare} topHeight={Platform.OS == 'ios' ? responsiveHeight(60):0} />
+            <VerseComponent  item={itemToShare} topHeight={Platform.OS == 'ios' ? responsiveHeight(47):0} />
           </ViewShot>
         </View>
       }
