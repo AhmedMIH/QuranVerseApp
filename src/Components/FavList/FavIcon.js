@@ -1,56 +1,53 @@
-import { TouchableOpacity } from 'react-native';
-import React, { useEffect, useState } from 'react';
-import { connect, useSelector } from 'react-redux';
-import LottieView from 'lottie-react-native';
+import {TouchableOpacity} from 'react-native';
+import React, {useEffect} from 'react';
+import {connect, useSelector} from 'react-redux';
 import Spinner from 'react-native-loading-spinner-overlay';
-import { addVerseToFav, removeVerseFromFav } from '../../Redux/Actions';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {addVerseToFav, removeVerseFromFav} from '../../Redux/Actions';
 import styles from './styles';
+import {getThemeColor} from '../../Utils/Helper';
 
-function FavIcon ( { item, addVerseToFav, removeVerseFromFav, style, loading } ) {
-  const { favs } = useSelector( state => state.fav );
-  const { darkMode } = useSelector( state => state.app )
+function FavIcon({item, addVerseToFav, removeVerseFromFav, style, loading}) {
+  const {favs} = useSelector(state => state.fav);
+  const {darkMode} = useSelector(state => state.app);
   const checkIfFav = () => {
-    for ( let i = 0;i < favs.length;i++ ) {
-      if ( favs[ i ].id === item.id ) {
+    for (let i = 0; i < favs.length; i++) {
+      if (favs[i].id === item.id) {
         return true;
       }
     }
     return false;
   };
 
-  useEffect( () => {
+  useEffect(() => {
     checkIfFav();
-
-  }, [ favs, ] );
-
+  }, [favs]);
 
   const handleOnPressFav = () => {
-    if ( checkIfFav() ) {
-      removeVerseFromFav( item );
+    if (checkIfFav()) {
+      removeVerseFromFav(item);
     } else {
-      addVerseToFav( item );
+      addVerseToFav(item);
     }
   };
   return (
-    <TouchableOpacity style={styles( darkMode ).icon} onPress={handleOnPressFav}>
+    <TouchableOpacity style={styles(darkMode).icon} onPress={handleOnPressFav}>
       <Spinner visible={loading} />
-
-      <LottieView
-        source={require( '../../animation/addToFav.json' )}
-        style={[ styles( darkMode ).animation, style ]}
-        loop={false}
-        progress={checkIfFav() ? 1 : 0}
+      <MaterialIcons
+        name={checkIfFav() ? 'favorite' : 'favorite-border'}
+        size={24}
+        color={checkIfFav() ? 'red' : getThemeColor(darkMode).iconsColors}
       />
     </TouchableOpacity>
   );
 }
 
-const mapStateToProps = ( { fav } ) => ( {
-  loading: fav.loading
-} );
+const mapStateToProps = ({fav}) => ({
+  loading: fav.loading,
+});
 const mapDispatchToProps = {
   addVerseToFav,
   removeVerseFromFav,
 };
 
-export default connect( mapStateToProps, mapDispatchToProps )( FavIcon );
+export default connect(mapStateToProps, mapDispatchToProps)(FavIcon);

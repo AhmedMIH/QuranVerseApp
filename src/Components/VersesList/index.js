@@ -29,7 +29,9 @@ const Index = ({verses, getVerses, next, page, loading}) => {
   }, []);
 
   const renderItem = useCallback(
-    ({item}) => <VerseComponent key={item.id} item={item} />,
+    ({item, index}) => (
+      <VerseComponent index={index} key={item.id} item={item} />
+    ),
     [],
   );
 
@@ -53,7 +55,7 @@ const Index = ({verses, getVerses, next, page, loading}) => {
           keyExtractor={item => item.id}
           horizontal
           pagingEnabled
-          renderItem={renderItem}
+          renderItem={({item, index}) => renderItem({item, index})}
           estimatedItemSize={width}
           disableVirtualization={true}
           legacyImplementation={true}

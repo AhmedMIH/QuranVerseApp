@@ -24,9 +24,8 @@ export default FavItem = ({item, type, onPressShare}) => {
 
   return (
     <TouchableOpacity
-      disabled
       onPress={() => {
-        // navigation.navigate('Verse', {item: item});
+        navigation.navigate('Verse', {item: item});
       }}
       style={styles(darkMode).container}>
       <View style={{width: '90%'}}>

@@ -10,6 +10,7 @@ import {getThemeColor} from '../Utils/Helper';
 import {useTranslation} from 'react-i18next';
 import {useSelector} from 'react-redux';
 import SearchNavigation from './SearchNavigation';
+import FavNavigation from './FavNavigation';
 
 const MainTabNavigation = () => {
   const MainTab = createMaterialBottomTabNavigator();
@@ -42,7 +43,7 @@ const MainTabNavigation = () => {
       />
       <MainTab.Screen
         name={t('15')}
-        component={FavoritesScreen}
+        component={FavNavigation}
         options={{
           tabBarIcon: ({focused}) => (
             <MaterialIcons

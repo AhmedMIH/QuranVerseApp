@@ -16,7 +16,7 @@ const commonColor = {
   diamond: '#C4E1FC',
   pinkLace: '#FED4FF',
   lightPastel: '#D0DFCD',
-  errorBackground: "#D83B57"
+  errorBackground: '#D83B57',
 };
 
 const light = {
@@ -28,6 +28,7 @@ const light = {
   langIconColor: '#4B464499',
   iconsColors: '#4B4644',
   bottomSheetColor: '#FFF8F6',
+  arrowIcon: '#978F8D',
 };
 
 const dark = {
@@ -55,6 +56,7 @@ const dark = {
   iconsColors: '#F8EFEC',
   langIconColor: '#B2A9A7',
   bottomSheetColor: '#372D29',
+  arrowIcon: '#EAE0DD',
 };
 
 const themes = {

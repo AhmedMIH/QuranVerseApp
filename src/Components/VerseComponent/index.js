@@ -23,7 +23,7 @@ import {errorHandling} from '../../Redux/Actions';
 import BottomSheet from '../BottomSheet';
 import {useNavigation} from '@react-navigation/native';
 
-const index = ({item, topHeight = 0, haveExit = false}) => {
+const index = ({item, topHeight = 0, haveExit = false, index}) => {
   const dispatch = useDispatch();
   const ref = useRef();
   const navigation = useNavigation();
@@ -98,13 +98,44 @@ const index = ({item, topHeight = 0, haveExit = false}) => {
               />
             </TouchableOpacity>
           </View>
-
-          <Text style={styles(darkMode).verseArText}>
-            {isAr ? item.verseAr : item.verse}
-          </Text>
-          <VerticalSpace height={32} />
-          <Text style={styles(darkMode).surahText}>{item.surah}</Text>
-          <VerticalSpace height={32} />
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              width: '100%',
+            }}>
+            <View style={{width: 24}}>
+              {index == 1 && (
+                <MaterialIcons
+                  name={'chevron-left'}
+                  size={24}
+                  color={getThemeColor(darkMode).arrowIcon}
+                />
+              )}
+            </View>
+            <View
+              style={{
+                paddingHorizontal: responsiveWidth(16),
+                width: '80%',
+              }}>
+              <Text style={styles(darkMode).verseArText}>
+                {isAr ? item.verseAr : item.verse}
+              </Text>
+              <VerticalSpace height={32} />
+              <Text style={styles(darkMode).surahText}>{item.surah}</Text>
+              <VerticalSpace height={32} />
+            </View>
+            <View style={{width: 24}}>
+              {(index === 0 || index === 1) && (
+                <MaterialIcons
+                  name={'chevron-right'}
+                  size={24}
+                  color={getThemeColor(darkMode).arrowIcon}
+                />
+              )}
+            </View>
+          </View>
           <View
             style={{
               flexDirection: 'row',
